@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Como se preparar para a Black Friday 2026 | aSSELLERa</title>
+<meta name="description" content="Live gratuita com Raphael Araújo, CEO da Swisz. Como vender mais na Black Friday sem perder margem, romper o estoque ou travar sua operação. 07 de outubro de 2026, às 19h.">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23111111'/%3E%3Cpath d='M20 5 L35 36 L28.5 36 L20 17 L11.5 36 L5 36 Z' fill='%23E30613'/%3E%3C/svg%3E">
+<meta property="og:title" content="Como se preparar para a Black Friday 2026 | aSSELLERa">
+<meta property="og:description" content="Live gratuita para donos de e-commerce de moda. 07 de outubro de 2026, às 19h.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   aSSELLERa | Landing Live Black Friday 2026
+   Sistema visual: preto dominante, vermelho como acento,
+   Baskervville (editorial) nos títulos, Barlow no corpo.
+   ============================================================ */
+
+/* ---------- 1. TOKENS ---------- */
+:root{
+  --red:#E30613;
+  --red-deep:#8E040C;
+  --orange:#FF6A00;
+  --black:#111111;
+  --black-deep:#0D0D0D;
+  --card:#1E1E1E;
+  --line:#2A2A2A;
+  --gray-brand:#4A4A4A;
+  --text:#C7C7C7;
+  --text-dim:#8A8A8A;
+  --white:#FFFFFF;
+  --off:#F5F5F5;
+
+  --serif:'Baskervville', Georgia, 'Times New Roman', serif;
+  --sans:'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cond:'Barlow Condensed', 'Barlow', sans-serif;
+
+  --maxw:1200px;
+  --gutter:clamp(20px, 5vw, 56px);
+  --section-y:clamp(72px, 11vw, 140px);
+  --radius:4px;
+}
+
+/* ---------- 2. RESET ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--black); color:var(--text);
+  font-family:var(--sans); font-weight:300; font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+button,input{font:inherit; color:inherit}
+a{color:inherit; text-decoration:none}
+h1,h2,h3,h4{margin:0; font-weight:400}
+p{margin:0 0 1.15em}
+p:last-child{margin-bottom:0}
+
+::selection{background:var(--red); color:#fff}
+
+:focus-visible{ outline:2px solid var(--red); outline-offset:3px; border-radius:2px; }
+
+/* ---------- 3. UTILITÁRIOS ---------- */
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.section{ position:relative; padding-block:var(--section-y); }
+.section--deep{ background:var(--black-deep); }
+.hr{ height:1px; background:var(--line); border:0; margin:0; }
+
+.kicker{
+  font-family:var(--cond); font-weight:600; text-transform:uppercase;
+  letter-spacing:.15em; font-size:clamp(11px,1.15vw,13px); color:var(--red);
+  display:flex; align-items:center; gap:12px; margin:0 0 20px;
+}
+.kicker::before{ content:""; width:28px; height:1px; background:var(--red); flex:none; }
+.kicker--center{ justify-content:center; }
+.kicker--center::after{ content:""; width:28px; height:1px; background:var(--red); flex:none; }
+
+.h-display{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(1.85rem, 3.05vw, 2.55rem); line-height:1.16; letter-spacing:-.015em;
+  max-width:22ch;
+}
+.h-section{
+  font-family:var(--serif); font-weight:400; color:var(--white);
+  font-size:clamp(1.7rem, 3.4vw, 2.6rem); line-height:1.2; letter-spacing:-.01em;
+  max-width:21ch;
+}
+.h-section--wide{max-width:26ch}
+.h-section--center{ margin-inline:auto; text-align:center; max-width:24ch; }
+.red{ color:var(--red); }
+.lead{ font-size:clamp(1rem,1.5vw,1.14rem); color:var(--text); max-width:62ch; }
+.muted{ color:var(--text-dim); }
+
+/* ---------- 4. MALHA HEXAGONAL DE FUNDO ---------- */
+.mesh{
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; z-index:0; overflow:hidden;
+  opacity:.4;
+  -webkit-mask-image:radial-gradient(ellipse 85% 70% at 50% 45%, #000 0%, transparent 78%);
+  mask-image:radial-gradient(ellipse 85% 70% at 50% 45%, #000 0%, transparent 78%);
+}
+.mesh svg{ width:100%; height:100%; display:block; }
+.mesh--strong{ opacity:.62; }
+@media(max-width:720px){ .mesh{ opacity:.24 } .mesh--strong{ opacity:.34 } }
+
+/* Fios geométricos finos */
+.rule-v{
+  position:absolute; top:0; bottom:0; width:1px;
+  background:linear-gradient(180deg, transparent, rgba(227,6,19,.16) 22%, rgba(227,6,19,.16) 78%, transparent);
+  pointer-events:none; z-index:0;
+}
+
+/* Marca d'água */
+.watermark{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font-family:var(--serif); font-size:clamp(7rem,22vw,20rem); line-height:1;
+  color:var(--red); opacity:.035; white-space:nowrap; pointer-events:none;
+  z-index:0; letter-spacing:-.04em;
+}
+
+/* Glow vermelho radial */
+.glow{
+  position:absolute; border-radius:50%; pointer-events:none; z-index:0;
+  background:radial-gradient(circle, rgba(227,6,19,.55) 0%, rgba(227,6,19,.18) 35%, transparent 68%);
+  filter:blur(46px);
+}
+
+/* ---------- 5. TOP BAR + CONTADOR ---------- */
+.topbar{
+  position:relative; z-index:60; background:var(--black-deep);
+  border-bottom:1px solid var(--line);
+}
+.topbar__in{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding-block:11px; flex-wrap:wrap;
+}
+.topbar__date{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
+  font-size:clamp(10.5px,1.1vw,12.5px); font-weight:600; color:var(--off);
+  display:flex; align-items:center; gap:10px;
+}
+.live-dot{
+  width:7px; height:7px; border-radius:50%; background:var(--red); flex:none;
+  box-shadow:0 0 0 0 rgba(227,6,19,.65); animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(227,6,19,.55)}
+  70%{box-shadow:0 0 0 9px rgba(227,6,19,0)}
+  100%{box-shadow:0 0 0 0 rgba(227,6,19,0)}
+}
+.countdown{ display:flex; align-items:flex-end; gap:clamp(12px,2.4vw,26px); }
+.cd{ display:flex; flex-direction:column; align-items:center; min-width:38px; }
+.cd__num{
+  font-family:var(--cond); font-weight:700; color:var(--red);
+  font-size:clamp(19px,2.5vw,26px); line-height:1; letter-spacing:.01em;
+  font-variant-numeric:tabular-nums;
+}
+.cd__lab{
+  font-family:var(--cond); font-weight:500; text-transform:uppercase;
+  letter-spacing:.16em; font-size:9px; color:var(--text-dim); margin-top:5px;
+}
+
+/* ---------- 6. NAV / LOGO ---------- */
+.nav{ position:relative; z-index:55; }
+.nav__in{ display:flex; align-items:center; justify-content:space-between; padding-block:20px; }
+.logo{ display:flex; align-items:center; gap:13px; }
+.logo__mark{ width:34px; height:34px; flex:none; }
+.logo__txt{ display:flex; flex-direction:column; line-height:1; }
+.logo__name{ font-family:var(--serif); font-size:20px; color:var(--white); letter-spacing:.01em; }
+.logo__sub{
+  font-family:var(--cond); font-size:8.5px; text-transform:uppercase;
+  letter-spacing:.3em; color:var(--text-dim); margin-top:5px;
+}
+.nav__cta{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.12em;
+  font-size:12px; font-weight:600; color:var(--off);
+  border:1px solid var(--line); padding:9px 18px; border-radius:var(--radius);
+  transition:border-color .3s, color .3s, background .3s;
+}
+.nav__cta:hover{ border-color:var(--red); color:#fff; background:rgba(227,6,19,.07); }
+
+/* ---------- 7. HERO ---------- */
+.hero{ position:relative; overflow:hidden; padding-block:clamp(28px,3.4vw,44px) clamp(52px,7vw,92px); }
+.hero__grid{
+  position:relative; z-index:2; display:grid; gap:clamp(40px,5vw,64px);
+  grid-template-columns:1fr; align-items:center;
+}
+@media(min-width:980px){
+  .hero__grid{ grid-template-columns:1.02fr .98fr; gap:clamp(40px,5vw,72px); }
+}
+.hero h1{ margin-bottom:22px; }
+.hero__sub{ margin-bottom:22px; }
+.hero__sub .lead{ font-size:clamp(.98rem,1.25vw,1.06rem); max-width:52ch; }
+.hero__date{
+  display:inline-flex; align-items:center; gap:11px; margin-bottom:30px;
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
+  font-size:clamp(12px,1.35vw,14px); font-weight:600; color:var(--off);
+  border-left:2px solid var(--red); padding:6px 0 6px 14px;
+}
+
+/* Retrato com glow */
+.portrait{ position:relative; z-index:2; display:flex; justify-content:center; }
+.portrait__glow{
+  width:clamp(300px,42vw,520px); height:clamp(300px,42vw,520px);
+  left:50%; top:47%; transform:translate(-50%,-50%);
+}
+.portrait__frame{
+  position:relative; z-index:2; width:100%; max-width:430px; aspect-ratio:4/5;
+  border:1px solid rgba(227,6,19,.22); border-radius:var(--radius);
+  overflow:hidden;
+  background:
+    linear-gradient(170deg, rgba(227,6,19,.09) 0%, rgba(25,25,25,0) 45%),
+    linear-gradient(170deg,#1A1717 0%, #0D0D0D 100%);
+  will-change:transform;
+}
+.portrait__frame img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+.portrait__ph{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:14px; text-align:center; padding:28px;
+  margin:12px; border:1px dashed rgba(227,6,19,.2); border-radius:2px;
+}
+.portrait__ph svg{ opacity:.5 }
+.portrait__ph span{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.18em;
+  font-size:11px; color:var(--gray-brand);
+}
+.portrait__tag{
+  position:absolute; z-index:3; left:0; bottom:0; right:0;
+  padding:26px 22px 18px;
+  background:linear-gradient(180deg, transparent, rgba(13,13,13,.92));
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.14em;
+  font-size:12px; font-weight:600; color:var(--off);
+  display:flex; align-items:center; gap:10px;
+}
+.portrait__tag b{ color:var(--red); font-weight:600 }
+
+/* ---------- 8. FORMULÁRIO ---------- */
+.form-card{
+  position:relative; background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:clamp(24px,3.2vw,34px);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
+}
+.form-card::before{
+  content:""; position:absolute; left:0; top:0; height:2px; width:64px; background:var(--red);
+}
+.form-card__title{
+  font-family:var(--serif); font-size:clamp(1.25rem,2vw,1.55rem);
+  color:var(--white); margin-bottom:20px; line-height:1.25;
+}
+.field{ margin-bottom:12px; }
+.field label{
+  display:block; font-family:var(--cond); text-transform:uppercase;
+  letter-spacing:.14em; font-size:10.5px; color:var(--text-dim); margin-bottom:7px;
+}
+.field input{
+  width:100%; background:#171717; border:1px solid #303030; border-radius:var(--radius);
+  padding:14px 15px; font-family:var(--sans); font-weight:400; font-size:15.5px; color:var(--off);
+  transition:border-color .25s, background .25s, box-shadow .25s;
+}
+.field input::placeholder{ color:#5C5C5C; }
+.field input:focus{
+  outline:none; border-color:var(--red); background:#1B1616;
+  box-shadow:0 0 0 3px rgba(227,6,19,.13);
+}
+.field input[aria-invalid="true"]{ border-color:var(--red); }
+.field__err{
+  display:none; font-family:var(--cond); text-transform:uppercase; letter-spacing:.1em;
+  font-size:10.5px; color:#FF5C66; margin-top:6px;
+}
+.field.is-err .field__err{ display:block; }
+
+.btn{
+  position:relative; overflow:hidden; width:100%; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; gap:11px;
+  background:var(--red); color:#fff; border:0; border-radius:var(--radius);
+  font-family:var(--cond); font-weight:700; text-transform:uppercase;
+  letter-spacing:.13em; font-size:clamp(13px,1.5vw,15px);
+  padding:17px 22px; margin-top:10px;
+  transition:transform .25s cubic-bezier(.25,1,.5,1), box-shadow .3s, background .3s;
+  box-shadow:0 12px 30px -12px rgba(227,6,19,.65);
+}
+.btn::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(110deg, transparent 20%, rgba(255,255,255,.22) 50%, transparent 80%);
+  transform:translateX(-120%); transition:transform .75s ease;
+}
+.btn:hover{ background:#F50A18; transform:translateY(-2px); box-shadow:0 18px 40px -14px rgba(227,6,19,.8); }
+.btn:hover::after{ transform:translateX(120%); }
+.btn:active{ transform:translateY(1px); }
+.btn svg{ flex:none }
+.btn--auto{ width:auto; padding-inline:34px }
+
+.microcopy{
+  font-size:12.5px; line-height:1.5; color:var(--text-dim); margin-top:14px;
+  display:flex; gap:9px; align-items:flex-start;
+}
+.microcopy svg{ flex:none; margin-top:2px; opacity:.8 }
+
+.form-ok{
+  display:none; text-align:center; padding:12px 0 2px;
+}
+.form-ok__t{ font-family:var(--serif); font-size:1.35rem; color:var(--white); margin-bottom:8px }
+.is-sent .form-ok{ display:block }
+.is-sent .form-body{ display:none }
+
+/* ---------- 9. MARQUEE ---------- */
+.marquee{
+  position:relative; overflow:hidden; background:var(--black-deep);
+  border-block:1px solid var(--line); padding-block:15px;
+}
+.marquee__track{ display:flex; width:max-content; animation:slide 34s linear infinite; }
+.marquee__grp{ display:flex; align-items:center; flex:none; }
+.marquee__item{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.2em;
+  font-size:clamp(12px,1.5vw,15px); font-weight:600; color:var(--off);
+  padding-inline:22px; white-space:nowrap;
+}
+.marquee__d{ color:var(--red); font-size:11px; }
+@keyframes slide{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee:hover .marquee__track{ animation-play-state:paused }
+
+/* ---------- 10. GRID DE IDENTIFICAÇÃO ---------- */
+.pains{
+  display:grid; gap:0; margin-top:clamp(36px,4.5vw,54px);
+  grid-template-columns:1fr; border-top:1px solid var(--line);
+}
+@media(min-width:700px){ .pains{ grid-template-columns:repeat(2,1fr) } }
+@media(min-width:1040px){ .pains{ grid-template-columns:repeat(3,1fr) } }
+.pain{
+  position:relative; padding:24px 24px 24px 0; border-bottom:1px solid var(--line);
+  display:flex; gap:14px; align-items:flex-start; font-size:15.5px; line-height:1.55;
+}
+@media(min-width:700px){ .pain{ padding-right:34px } }
+.pain__mk{ flex:none; margin-top:7px; width:14px; height:1px; background:var(--red); }
+.pain:hover .pain__mk{ width:24px; transition:width .3s }
+
+.pullquote{
+  position:relative; margin-top:clamp(44px,5.5vw,70px);
+  border-left:2px solid var(--red); padding:6px 0 6px clamp(20px,3vw,34px);
+  font-family:var(--serif); color:var(--off);
+  font-size:clamp(1.25rem,2.5vw,1.85rem); line-height:1.4; max-width:44ch;
+}
+
+/* ---------- 11. BLOCOS NUMERADOS ---------- */
+.modules{
+  display:grid; gap:0; margin-top:clamp(36px,4.5vw,56px); grid-template-columns:1fr;
+  border-top:1px solid var(--line);
+}
+@media(min-width:860px){ .modules{ grid-template-columns:repeat(2,1fr); column-gap:clamp(30px,4vw,60px) } }
+.module{
+  padding:clamp(24px,3vw,32px) 0; border-bottom:1px solid var(--line);
+  display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,2.2vw,24px); align-items:start;
+}
+.module__n{
+  font-family:var(--cond); font-weight:700; color:var(--red); line-height:.85;
+  font-size:clamp(2.2rem,4.4vw,3.2rem); font-variant-numeric:tabular-nums;
+  opacity:.9; transition:opacity .3s;
+}
+.module:hover .module__n{ opacity:1 }
+.module__t{
+  font-family:var(--serif); color:var(--white); font-size:clamp(1.15rem,1.9vw,1.4rem);
+  line-height:1.25; margin-bottom:9px;
+}
+.module__d{ font-size:15.5px; line-height:1.6; color:var(--text); }
+
+/* ---------- 12. CHECKLIST ---------- */
+.checks{
+  display:grid; gap:2px 0; margin-top:clamp(32px,4vw,48px); grid-template-columns:1fr;
+}
+@media(min-width:720px){ .checks{ grid-template-columns:repeat(2,1fr); column-gap:clamp(28px,4vw,56px) } }
+.check{
+  display:flex; gap:14px; align-items:flex-start; padding:15px 0;
+  border-bottom:1px solid var(--line); font-size:15.5px; line-height:1.5;
+}
+.check svg{ flex:none; margin-top:3px }
+.closing{
+  margin-top:clamp(34px,4vw,48px); max-width:60ch; font-size:clamp(1rem,1.5vw,1.12rem);
+  color:var(--off); border-top:1px solid var(--line); padding-top:clamp(24px,3vw,32px);
+}
+
+/* ---------- 13. SEÇÃO CINEMÁTICA (frase de impacto) ---------- */
+.impact{
+  position:relative; background:var(--black-deep); overflow:hidden;
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding-block:var(--section-y);
+}
+.impact__card{
+  position:relative; z-index:3; width:min(1160px, 92vw);
+  background:linear-gradient(160deg,#1A1212 0%, #0F0D0D 52%, #0B0B0B 100%);
+  border:1px solid rgba(227,6,19,.16); border-radius:10px;
+  padding:clamp(34px,6vw,84px) clamp(24px,5vw,72px);
+  box-shadow:0 60px 120px -40px rgba(0,0,0,.95), inset 0 1px 1px rgba(255,255,255,.04);
+  overflow:hidden; will-change:transform;
+}
+.impact__sheen{
+  position:absolute; inset:0; pointer-events:none; z-index:4; border-radius:inherit;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(227,6,19,.13) 0%, transparent 45%);
+  mix-blend-mode:screen;
+}
+.impact__statement{
+  position:relative; z-index:5; font-family:var(--serif); color:var(--white);
+  font-size:clamp(2rem,5.6vw,4.2rem); line-height:1.08; letter-spacing:-.02em;
+  text-align:center; margin-bottom:clamp(16px,2.2vw,24px);
+}
+.impact__sub{
+  position:relative; z-index:5; font-family:var(--serif); color:var(--text);
+  font-size:clamp(1.05rem,2.2vw,1.6rem); line-height:1.4; text-align:center;
+  max-width:34ch; margin:0 auto clamp(40px,5.5vw,70px);
+}
+.duo{
+  position:relative; z-index:5; display:grid; gap:0; grid-template-columns:1fr;
+  border-top:1px solid var(--line);
+}
+@media(min-width:840px){ .duo{ grid-template-columns:1fr 1fr } }
+.duo__col{ padding:clamp(26px,3.4vw,38px) clamp(0px,2.6vw,34px); border-bottom:1px solid var(--line); }
+@media(min-width:840px){
+  .duo__col:first-child{ padding-left:0; border-right:1px solid var(--line) }
+  .duo__col:last-child{ padding-right:0 }
+}
+.duo__t{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.17em;
+  font-size:clamp(12px,1.4vw,14px); font-weight:600; margin-bottom:16px;
+  display:flex; align-items:center; gap:11px;
+}
+.duo__t::before{ content:""; width:22px; height:1px; background:currentColor; flex:none }
+.duo--good .duo__t{ color:var(--red) }
+.duo--bad .duo__t{ color:var(--gray-brand) }
+.duo--good p{ color:var(--off); font-size:clamp(1rem,1.5vw,1.1rem) }
+.duo--bad p{ color:#6E6E6E; font-size:clamp(1rem,1.5vw,1.1rem) }
+
+/* ---------- 14. APRESENTADOR ---------- */
+.speaker__grid{
+  position:relative; z-index:2; display:grid; gap:clamp(36px,5vw,64px); grid-template-columns:1fr; align-items:center;
+}
+@media(min-width:900px){ .speaker__grid{ grid-template-columns:.85fr 1.15fr } }
+.speaker__name{
+  font-family:var(--serif); color:var(--white); line-height:1.02; letter-spacing:-.02em;
+  font-size:clamp(2.2rem,5vw,3.6rem); margin-bottom:12px;
+}
+.speaker__role{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
+  font-size:clamp(12px,1.4vw,14px); font-weight:600; color:var(--red);
+  margin-bottom:clamp(22px,3vw,30px); padding-bottom:clamp(22px,3vw,30px);
+  border-bottom:1px solid var(--line); max-width:40ch; line-height:1.5;
+}
+
+/* ---------- 15. URGÊNCIA ---------- */
+.urgency__grid{
+  position:relative; z-index:2; display:grid; gap:clamp(38px,5vw,70px); grid-template-columns:1fr; align-items:start;
+}
+@media(min-width:960px){ .urgency__grid{ grid-template-columns:1.1fr .9fr } }
+.bigdate{
+  font-family:var(--cond); font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+  font-size:clamp(1.35rem,3vw,2.1rem); color:var(--white);
+  border-top:1px solid var(--line); padding-top:clamp(22px,3vw,30px); margin-top:clamp(26px,3.4vw,38px);
+}
+.bigdate span{ color:var(--red) }
+
+/* ---------- 16. FORM FINAL ---------- */
+.final{ position:relative; overflow:hidden; }
+.final__in{ position:relative; z-index:2; max-width:620px; margin:0 auto; text-align:center; }
+.final .form-card{ text-align:left; margin-top:clamp(32px,4vw,44px) }
+
+/* ---------- 17. FAQ ---------- */
+.faq{ margin-top:clamp(32px,4vw,48px); border-top:1px solid var(--line); }
+.faq__item{ border-bottom:1px solid var(--line); }
+.faq__q{
+  width:100%; background:none; border:0; cursor:pointer; text-align:left;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:clamp(20px,2.6vw,26px) 0; color:var(--off);
+  font-family:var(--serif); font-size:clamp(1.05rem,1.8vw,1.28rem); line-height:1.3;
+  transition:color .25s;
+}
+.faq__q:hover{ color:#fff }
+.faq__ico{
+  flex:none; width:24px; height:24px; position:relative;
+}
+.faq__ico::before,.faq__ico::after{
+  content:""; position:absolute; background:var(--red); left:50%; top:50%;
+  transition:transform .35s cubic-bezier(.25,1,.5,1), opacity .3s;
+}
+.faq__ico::before{ width:15px; height:1.5px; transform:translate(-50%,-50%) }
+.faq__ico::after{ width:1.5px; height:15px; transform:translate(-50%,-50%) }
+.faq__item.is-open .faq__ico::after{ transform:translate(-50%,-50%) rotate(90deg); opacity:0 }
+.faq__a{ overflow:hidden; height:0; }
+.faq__a p{ padding:0 0 clamp(22px,2.6vw,28px); max-width:70ch; font-size:15.5px }
+
+/* ---------- 18. RODAPÉ ---------- */
+.footer{ background:var(--black-deep); border-top:1px solid var(--line); padding-block:clamp(48px,6vw,72px) clamp(36px,4vw,52px); }
+.footer__grid{ display:grid; gap:clamp(28px,4vw,56px); grid-template-columns:1fr; }
+@media(min-width:860px){ .footer__grid{ grid-template-columns:.8fr 1.2fr; align-items:start } }
+.footer__t{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.16em;
+  font-size:12.5px; font-weight:600; color:var(--off); margin-bottom:16px; line-height:1.7;
+}
+.footer__txt{ font-size:13.5px; line-height:1.65; color:var(--text-dim); max-width:66ch }
+.footer__bottom{
+  margin-top:clamp(32px,4vw,48px); padding-top:24px; border-top:1px solid var(--line);
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.14em;
+  font-size:11px; color:var(--gray-brand);
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+
+/* ---------- 19. BARRA CTA FIXA ---------- */
+.stickybar{
+  position:fixed; left:0; right:0; bottom:0; z-index:90;
+  background:rgba(13,13,13,.93); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);
+  transform:translateY(105%); transition:transform .5s cubic-bezier(.25,1,.5,1);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.stickybar.is-on{ transform:translateY(0) }
+.stickybar__in{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding-block:12px; flex-wrap:wrap;
+}
+.stickybar__txt{
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
+  font-size:clamp(11px,1.3vw,13.5px); font-weight:600; color:var(--off);
+  display:flex; align-items:center; gap:10px;
+}
+.stickybar .btn{ width:auto; margin:0; padding:12px 24px; font-size:12.5px }
+@media(max-width:560px){
+  .stickybar__in{ justify-content:center }
+  .stickybar .btn{ flex:1 }
+}
+
+/* ---------- 20. ANIMAÇÃO (só quando o JS assume) ---------- */
+html.js-anim .anim{ visibility:hidden; }
+@media (prefers-reduced-motion: reduce){
+  html.js-anim .anim{ visibility:visible !important; opacity:1 !important; transform:none !important; }
+  .marquee__track{ animation:none }
+  .live-dot{ animation:none }
+  html{ scroll-behavior:auto }
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-anim");setTimeout(function(){if(!window.__animReady)document.documentElement.classList.remove("js-anim");},2600);</script>
+
+<!-- ========== DEFINIÇÃO DA MALHA HEXAGONAL (reutilizada nas seções) ========== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="hexpat" width="50" height="86.6" patternUnits="userSpaceOnUse" patternTransform="scale(1.15)">
+      <g fill="none" stroke="#E30613" stroke-width="1" opacity=".55">
+        <path d="M25,0 L50,14.43 L50,43.3 L25,57.73 L0,43.3 L0,14.43 Z"/>
+        <path d="M50,43.3 L75,57.73 L75,86.6 L50,101 L25,86.6 L25,57.73 Z"/>
+        <path d="M0,43.3 L25,57.73 L25,86.6 L0,101 L-25,86.6 L-25,57.73 Z"/>
+      </g>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- ========== 5.1 FAIXA SUPERIOR ========== -->
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <p class="topbar__date"><span class="live-dot" aria-hidden="true"></span>07 de outubro de 2026 · 19h · online e ao vivo</p>
+    <div class="countdown" id="countdown" role="timer" aria-live="off" aria-label="Contagem regressiva para a live">
+      <div class="cd"><span class="cd__num" id="cd-d">00</span><span class="cd__lab">Dias</span></div>
+      <div class="cd"><span class="cd__num" id="cd-h">00</span><span class="cd__lab">Horas</span></div>
+      <div class="cd"><span class="cd__num" id="cd-m">00</span><span class="cd__lab">Minutos</span></div>
+      <div class="cd"><span class="cd__num" id="cd-s">00</span><span class="cd__lab">Segundos</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== NAV / LOGO ========== -->
+<nav class="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="#topo" aria-label="aSSELLERa, mentoria de escala">
+      <!-- Placeholder do logo oficial: troque por assets/logo.svg quando tiver o arquivo -->
+      <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 4 L35 36 L28.5 36 L20 17 L11.5 36 L5 36 Z" fill="#E30613"/>
+        <path d="M14.5 27 L25.5 27 L27.8 32 L12.2 32 Z" fill="#E30613" opacity=".55"/>
+      </svg>
+      <span class="logo__txt">
+        <span class="logo__name">aSSELLERa</span>
+        <span class="logo__sub">Mentoria de escala</span>
+      </span>
+    </a>
+    <a class="nav__cta" href="#inscricao">Inscrição gratuita</a>
+  </div>
+</nav>
+
+<!-- ========== 5.2 PRIMEIRA DOBRA ========== -->
+<main id="topo">
+<section class="hero">
+  <div class="mesh mesh--strong" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
+  <div class="rule-v" style="left:12%" aria-hidden="true"></div>
+  <div class="rule-v" style="right:16%" aria-hidden="true"></div>
+
+  <div class="wrap hero__grid">
+    <div class="hero__col">
+      <p class="kicker anim" data-anim="up">Black Friday 2026 para e-commerces de moda</p>
+      <h1 class="h-display anim" data-anim="up">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</h1>
+      <div class="hero__sub anim" data-anim="up">
+        <p class="lead">Participe desta live gratuita e descubra como transformar metas de vendas em um planejamento completo de estoque, ofertas, marketing e operação.</p>
+        <p class="lead">Raphael mostrará, de forma prática, como preparar seu e-commerce de moda para aproveitar a maior campanha comercial do ano com estratégia, números e capacidade de execução.</p>
+      </div>
+      <p class="hero__date anim" data-anim="up">Quarta-feira, 07 de outubro, às 19h</p>
+
+      <!-- FORMULÁRIO 1 -->
+      <div class="form-card anim" data-anim="up" id="inscricao">
+        <div class="form-body">
+          <h2 class="form-card__title">Garanta sua inscrição gratuita</h2>
+          <!-- Troque o action pelo endpoint da sua ferramenta de captura -->
+          <form class="js-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="n1">Nome</label>
+              <input id="n1" name="nome" type="text" placeholder="Digite seu nome" autocomplete="name" required>
+              <span class="field__err">Informe seu nome</span>
+            </div>
+            <div class="field">
+              <label for="e1">E-mail</label>
+              <input id="e1" name="email" type="email" placeholder="Digite seu melhor e-mail" autocomplete="email" required>
+              <span class="field__err">Informe um e-mail válido</span>
+            </div>
+            <div class="field">
+              <label for="w1">WhatsApp</label>
+              <input id="w1" name="whatsapp" type="tel" placeholder="Digite seu WhatsApp" autocomplete="tel" inputmode="numeric" required>
+              <span class="field__err">Informe um WhatsApp válido</span>
+            </div>
+            <button class="btn" type="submit">Quero participar da live gratuita
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+          <p class="microcopy">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            Seus dados estão seguros e serão utilizados apenas para enviar informações sobre a live e conteúdos relacionados.
+          </p>
+        </div>
+        <div class="form-ok" role="status">
+          <p class="form-ok__t">Inscrição confirmada</p>
+          <p class="microcopy" style="justify-content:center">As informações de acesso serão enviadas pelos canais cadastrados.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="portrait anim" data-anim="fade">
+      <div class="glow portrait__glow" aria-hidden="true"></div>
+      <figure class="portrait__frame" id="portrait-hero" style="margin:0">
+        <!-- Coloque a foto do Raphael em assets/raphael.jpg -->
+        <img src="assets/raphael.jpg" alt="Raphael Araújo, CEO da Swisz" class="js-photo" width="940" height="1175">
+        <div class="portrait__ph">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          <span>Foto do Raphael<br>assets/raphael.jpg</span>
+        </div>
+        <figcaption class="portrait__tag"><b>◆</b> Raphael Araújo · CEO da Swisz</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.3 FAIXA DE DESTAQUE ========== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__grp">
+      <span class="marquee__item">Live gratuita</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">07 de outubro</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Às 19h</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Online e ao vivo</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Live gratuita</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">07 de outubro</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Às 19h</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Online e ao vivo</span><span class="marquee__d">◆</span>
+    </div>
+    <div class="marquee__grp">
+      <span class="marquee__item">Live gratuita</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">07 de outubro</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Às 19h</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Online e ao vivo</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Live gratuita</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">07 de outubro</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Às 19h</span><span class="marquee__d">◆</span>
+      <span class="marquee__item">Online e ao vivo</span><span class="marquee__d">◆</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 5.4 SEÇÃO DE IDENTIFICAÇÃO ========== -->
+<section class="section">
+  <div class="wrap">
+    <p class="kicker anim" data-anim="up">Para quem é</p>
+    <h2 class="h-section h-section--wide anim" data-anim="up">Esta live é para você que vende moda e quer chegar à Black Friday com um <span class="red">plano claro</span></h2>
+
+    <div class="pains">
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Não sabe quanto deveria projetar de vendas para a campanha.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Tem dúvidas sobre quais produtos colocar em promoção.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Não sabe qual desconto pode oferecer sem comprometer a margem.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Tem receio de comprar estoque demais e terminar novembro com peças encalhadas.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Sofre com ruptura justamente nos produtos que mais vendem.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Investe em anúncios, mas ainda tem dificuldade para transformar mídia em lucro.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Quer vender mais, mas não sabe se a operação conseguirá separar e despachar todos os pedidos.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Precisa alinhar comercial, produção, estoque, marketing, expedição e atendimento.</div>
+      <div class="pain anim" data-anim="up"><span class="pain__mk" aria-hidden="true"></span>Quer parar de tomar decisões no improviso e construir uma Black Friday baseada em dados.</div>
+    </div>
+
+    <blockquote class="pullquote anim" data-anim="up">A Black Friday não deve começar na escolha do desconto. Ela deve começar na <span class="red">análise dos números, do estoque, da margem e da capacidade de entrega</span> da empresa.</blockquote>
+  </div>
+</section>
+
+<!-- ========== 5.5 CONTEÚDO DA LIVE ========== -->
+<section class="section section--deep">
+  <div class="mesh" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <p class="kicker anim" data-anim="up">Conteúdo</p>
+    <h2 class="h-section anim" data-anim="up">O que Raphael abordará durante a live</h2>
+
+    <div class="modules">
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">01</span>
+        <div><h3 class="module__t">Diagnóstico do e-commerce</h3><p class="module__d">Quais números analisar antes de criar qualquer projeção: faturamento, pedidos, ticket médio, conversão, margem, produtos mais vendidos, estoque, mídia, cancelamentos e devoluções.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">02</span>
+        <div><h3 class="module__t">Projeção de vendas</h3><p class="module__d">Como criar cenários conservador, realista e agressivo, definindo metas por canal, categoria e produto.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">03</span>
+        <div><h3 class="module__t">Planejamento de estoque</h3><p class="module__d">Como escolher os produtos da campanha, calcular a necessidade de estoque e evitar ruptura nos campeões de venda e excesso nos produtos de baixo giro.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">04</span>
+        <div><h3 class="module__t">Preços, ofertas e margem</h3><p class="module__d">Como definir descontos, kits, ofertas progressivas e benefícios comerciais sem vender muito e descobrir depois que a campanha não gerou lucro.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">05</span>
+        <div><h3 class="module__t">Marketing e antecipação</h3><p class="module__d">Quando começar a comunicação, como aquecer o público, captar clientes para grupos e listas, preparar criativos e organizar o investimento em mídia.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">06</span>
+        <div><h3 class="module__t">Preparação da operação</h3><p class="module__d">Como calcular a capacidade de separação, faturamento, embalagem, expedição e atendimento para não vender acima do que a empresa consegue entregar.</p></div>
+      </article>
+      <article class="module anim" data-anim="up">
+        <span class="module__n" aria-hidden="true">07</span>
+        <div><h3 class="module__t">Indicadores e decisões</h3><p class="module__d">Quais números acompanhar diariamente para aumentar mídia, interromper ofertas, movimentar estoque e corrigir problemas durante a campanha.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.6 TRANSFORMAÇÃO ========== -->
+<section class="section">
+  <div class="wrap">
+    <p class="kicker anim" data-anim="up">O que você leva</p>
+    <h2 class="h-section h-section--wide anim" data-anim="up">Ao final da live, você terá mais clareza para definir:</h2>
+
+    <div class="checks">
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quanto o seu e-commerce pretende vender.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quantos pedidos e peças essa meta representa.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quais produtos participarão da campanha.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quanto de estoque será necessário.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Qual será o preço mínimo de cada oferta.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quanto poderá ser investido em mídia.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quantos pedidos sua operação consegue processar.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>Quais indicadores deverão ser acompanhados diariamente.</div>
+      <div class="check anim" data-anim="up"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6.5"/></svg>O que precisa ser feito entre outubro e a Black Friday.</div>
+    </div>
+
+    <p class="closing anim" data-anim="up">Você não receberá apenas ideias de promoção. Receberá uma visão completa de como organizar a campanha do planejamento à execução.</p>
+  </div>
+</section>
+
+<!-- ========== 5.7 FRASE DE IMPACTO (momento cinematográfico) ========== -->
+<section class="impact" id="impact">
+  <div class="mesh mesh--strong" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
+  <div class="watermark" aria-hidden="true">aSSELLERa</div>
+  <div class="glow" style="width:60vw;height:60vw;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.5" aria-hidden="true"></div>
+
+  <div class="impact__card" id="impact-card">
+    <div class="impact__sheen" aria-hidden="true"></div>
+    <h2 class="impact__statement">
+      <span class="imp-line">Vender mais não é o</span><br>
+      <span class="imp-line">único <span class="red">objetivo</span>.</span>
+    </h2>
+    <p class="impact__sub imp-sub">A verdadeira meta é crescer com estoque, margem, operação e experiência do cliente sob controle.</p>
+
+    <div class="duo">
+      <div class="duo__col duo--good imp-col">
+        <p class="duo__t">Bem planejada</p>
+        <p>Uma Black Friday bem planejada pode gerar caixa, conquistar novos clientes, aumentar o giro do estoque e preparar a empresa para as vendas de dezembro.</p>
+      </div>
+      <div class="duo__col duo--bad imp-col">
+        <p class="duo__t">Improvisada</p>
+        <p>Uma Black Friday improvisada pode gerar atrasos, cancelamentos, ruptura, reclamações e faturamento sem lucro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.8 SOBRE O APRESENTADOR ========== -->
+<section class="section">
+  <div class="wrap speaker__grid">
+    <div class="portrait anim" data-anim="fade">
+      <div class="glow portrait__glow" style="width:clamp(260px,34vw,440px);height:clamp(260px,34vw,440px)" aria-hidden="true"></div>
+      <figure class="portrait__frame" style="margin:0;max-width:420px">
+        <img src="assets/raphael.jpg" alt="Raphael Araújo" class="js-photo" width="840" height="1050">
+        <div class="portrait__ph">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          <span>Foto do Raphael<br>assets/raphael.jpg</span>
+        </div>
+      </figure>
+    </div>
+
+    <div>
+      <p class="kicker anim" data-anim="up">Com quem você vai aprender</p>
+      <h2 class="speaker__name anim" data-anim="up">Raphael Araújo</h2>
+      <p class="speaker__role anim" data-anim="up">CEO da Swisz e especialista em gestão de e-commerce de moda</p>
+      <div class="anim" data-anim="up">
+        <p class="lead">Raphael atua diretamente na gestão e no crescimento da Swisz, uma operação de moda feminina com produção própria e presença em diferentes canais de venda.</p>
+        <p class="lead">Sua experiência envolve planejamento comercial, gestão de estoque, produção, marketplaces, marketing, operação e construção de processos para o crescimento sustentável de um e-commerce de moda.</p>
+        <p class="lead">Nesta live, Raphael compartilhará os principais critérios utilizados para transformar dados em decisões e preparar uma operação para períodos de alta demanda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.9 BLOCO DE URGÊNCIA ========== -->
+<section class="section section--deep">
+  <div class="mesh" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
+  <div class="wrap urgency__grid">
+    <div>
+      <p class="kicker anim" data-anim="up">Janela de preparação</p>
+      <h2 class="h-section h-section--wide anim" data-anim="up">A Black Friday de 2026 será no dia <span class="red">27 de novembro</span></h2>
+      <div class="anim" data-anim="up" style="margin-top:clamp(22px,3vw,30px)">
+        <p class="lead">A live acontecerá 51 dias antes da Black Friday: o momento ideal para revisar os números, definir o estoque, aprovar as ofertas e preparar a operação.</p>
+        <p class="lead">Quanto mais tarde o planejamento começar, menor será o tempo disponível para corrigir estoque, produção, preços, campanhas e processos.</p>
+      </div>
+      <p class="bigdate anim" data-anim="up">07 de outubro de 2026 <span>·</span> às 19h</p>
+    </div>
+
+    <!-- FORMULÁRIO 2 -->
+    <div class="form-card anim" data-anim="up">
+      <div class="form-body">
+        <h2 class="form-card__title">Garanta sua inscrição gratuita</h2>
+        <form class="js-form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="n2">Nome</label>
+            <input id="n2" name="nome" type="text" placeholder="Digite seu nome" autocomplete="name" required>
+            <span class="field__err">Informe seu nome</span>
+          </div>
+          <div class="field">
+            <label for="e2">E-mail</label>
+            <input id="e2" name="email" type="email" placeholder="Digite seu melhor e-mail" autocomplete="email" required>
+            <span class="field__err">Informe um e-mail válido</span>
+          </div>
+          <div class="field">
+            <label for="w2">WhatsApp</label>
+            <input id="w2" name="whatsapp" type="tel" placeholder="Digite seu WhatsApp" autocomplete="tel" inputmode="numeric" required>
+            <span class="field__err">Informe um WhatsApp válido</span>
+          </div>
+          <button class="btn" type="submit">Garantir minha inscrição gratuita
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="microcopy">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Seus dados estão seguros e serão utilizados apenas para enviar informações sobre a live e conteúdos relacionados.
+        </p>
+      </div>
+      <div class="form-ok" role="status">
+        <p class="form-ok__t">Inscrição confirmada</p>
+        <p class="microcopy" style="justify-content:center">As informações de acesso serão enviadas pelos canais cadastrados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.10 FORMULÁRIO FINAL ========== -->
+<section class="section final" id="inscricao-final">
+  <div class="mesh mesh--strong" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
+  <div class="glow" style="width:52vw;height:52vw;left:50%;top:38%;transform:translate(-50%,-50%);opacity:.42" aria-hidden="true"></div>
+
+  <div class="wrap final__in">
+    <p class="kicker kicker--center anim" data-anim="up">Inscrição</p>
+    <h2 class="h-section h-section--center anim" data-anim="up">Prepare seu e-commerce de moda para a <span class="red">Black Friday 2026</span></h2>
+    <p class="lead anim" data-anim="up" style="margin:22px auto 0">Preencha seus dados para confirmar sua inscrição e receber as informações de acesso à live.</p>
+
+    <!-- FORMULÁRIO 3 -->
+    <div class="form-card anim" data-anim="up">
+      <div class="form-body">
+        <form class="js-form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="n3">Nome</label>
+            <input id="n3" name="nome" type="text" placeholder="Digite seu nome" autocomplete="name" required>
+            <span class="field__err">Informe seu nome</span>
+          </div>
+          <div class="field">
+            <label for="e3">E-mail</label>
+            <input id="e3" name="email" type="email" placeholder="Digite seu melhor e-mail" autocomplete="email" required>
+            <span class="field__err">Informe um e-mail válido</span>
+          </div>
+          <div class="field">
+            <label for="w3">WhatsApp</label>
+            <input id="w3" name="whatsapp" type="tel" placeholder="Digite seu WhatsApp" autocomplete="tel" inputmode="numeric" required>
+            <span class="field__err">Informe um WhatsApp válido</span>
+          </div>
+          <button class="btn" type="submit">Quero garantir minha vaga gratuita
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="microcopy">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          A participação é gratuita. Após a inscrição, as informações de acesso serão enviadas pelos canais cadastrados.
+        </p>
+      </div>
+      <div class="form-ok" role="status">
+        <p class="form-ok__t">Inscrição confirmada</p>
+        <p class="microcopy" style="justify-content:center">As informações de acesso serão enviadas pelos canais cadastrados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5.11 PERGUNTAS FREQUENTES ========== -->
+<section class="section section--deep">
+  <div class="wrap">
+    <p class="kicker anim" data-anim="up">Dúvidas</p>
+    <h2 class="h-section anim" data-anim="up">Perguntas frequentes</h2>
+
+    <div class="faq">
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">A participação é realmente gratuita?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Sim. A inscrição e a participação na live são totalmente gratuitas.</p></div>
+      </div>
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">Quando acontecerá?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>A live acontecerá no dia 07 de outubro de 2026, às 19h.</p></div>
+      </div>
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">Onde a live será transmitida?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>A transmissão será online e ao vivo. O link de acesso será enviado aos participantes inscritos.</p></div>
+      </div>
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">Para quem é esta live?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Para donos, gestores e profissionais de e-commerces de moda que participam do planejamento comercial, de estoque, marketing, produção ou operação.</p></div>
+      </div>
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">Preciso ter uma empresa grande para participar?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Não. O conteúdo poderá ser aplicado por operações de diferentes tamanhos. O mais importante é adaptar as projeções à realidade financeira, comercial e operacional do negócio.</p></div>
+      </div>
+      <div class="faq__item anim" data-anim="up">
+        <button class="faq__q" type="button" aria-expanded="false">O conteúdo serve para quem vende em marketplaces?<span class="faq__ico" aria-hidden="true"></span></button>
+        <div class="faq__a"><p>Sim. Raphael abordará a importância de fazer projeções e acompanhar resultados por canal, considerando site próprio e marketplaces.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ========== 5.12 RODAPÉ ========== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="logo">
+        <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 4 L35 36 L28.5 36 L20 17 L11.5 36 L5 36 Z" fill="#E30613"/>
+          <path d="M14.5 27 L25.5 27 L27.8 32 L12.2 32 Z" fill="#E30613" opacity=".55"/>
+        </svg>
+        <span class="logo__txt">
+          <span class="logo__name">aSSELLERa</span>
+          <span class="logo__sub">Mentoria de escala</span>
+        </span>
+      </div>
+      <div>
+        <p class="footer__t">Live: como se preparar para a Black Friday 2026</p>
+        <p class="footer__txt">Evento online e gratuito.</p>
+        <p class="footer__txt" style="margin-top:12px">Ao se inscrever, você concorda em receber informações relacionadas à live e conteúdos sobre gestão e crescimento de e-commerces de moda. Você poderá cancelar o recebimento a qualquer momento.</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>aSSELLERa · Todos os direitos reservados</span>
+      <span>07 de outubro de 2026 · 19h</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== BARRA DE CTA FIXA ========== -->
+<div class="stickybar" id="stickybar">
+  <div class="wrap stickybar__in">
+    <p class="stickybar__txt"><span class="live-dot" aria-hidden="true"></span>Inscrição gratuita · 07/10 · 19h</p>
+    <a class="btn btn--auto" href="#inscricao-final">Quero minha vaga
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ========== BIBLIOTECA DE ANIMAÇÃO ========== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 1. CONTADOR REGRESSIVO (07/10/2026 19:00 BRT) ---------- */
+  var TARGET = new Date("2026-10-07T19:00:00-03:00").getTime();
+  var els = { d:document.getElementById("cd-d"), h:document.getElementById("cd-h"),
+              m:document.getElementById("cd-m"), s:document.getElementById("cd-s") };
+  function pad(n){ return n < 10 ? "0" + n : String(n); }
+  function tick(){
+    var diff = TARGET - Date.now();
+    if (diff < 0) diff = 0;
+    var sec = Math.floor(diff / 1000);
+    els.d.textContent = pad(Math.floor(sec / 86400));
+    els.h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    els.m.textContent = pad(Math.floor(sec % 3600 / 60));
+    els.s.textContent = pad(sec % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- 2. FOTO: fallback para o placeholder ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".js-photo"), function(img){
+    function fail(){ img.style.display = "none"; }
+    img.addEventListener("error", fail);
+    if (img.complete && img.naturalWidth === 0) fail();
+  });
+
+  /* ---------- 3. ACCORDION DO FAQ ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".faq__q"), function(btn){
+    var item = btn.parentNode, panel = item.querySelector(".faq__a");
+    btn.addEventListener("click", function(){
+      var open = item.classList.contains("is-open");
+      // Fecha os demais para manter a leitura limpa
+      Array.prototype.forEach.call(document.querySelectorAll(".faq__item.is-open"), function(o){
+        if (o !== item){
+          o.classList.remove("is-open");
+          o.querySelector(".faq__q").setAttribute("aria-expanded","false");
+          o.querySelector(".faq__a").style.height = "0px";
+        }
+      });
+      item.classList.toggle("is-open", !open);
+      btn.setAttribute("aria-expanded", String(!open));
+      panel.style.height = open ? "0px" : panel.scrollHeight + "px";
+    });
+  });
+  window.addEventListener("resize", function(){
+    var op = document.querySelector(".faq__item.is-open .faq__a");
+    if (op) op.style.height = op.scrollHeight + "px";
+  });
+
+  /* ---------- 4. FORMULÁRIOS ---------- */
+  function mark(input, ok){
+    var field = input.closest(".field");
+    field.classList.toggle("is-err", !ok);
+    input.setAttribute("aria-invalid", ok ? "false" : "true");
+    return ok;
+  }
+  function maskPhone(v){
+    var n = v.replace(/\D/g, "").slice(0, 11);
+    if (n.length <= 2) return n.length ? "(" + n : "";
+    if (n.length <= 6) return "(" + n.slice(0,2) + ") " + n.slice(2);
+    if (n.length <= 10) return "(" + n.slice(0,2) + ") " + n.slice(2,6) + "-" + n.slice(6);
+    return "(" + n.slice(0,2) + ") " + n.slice(2,7) + "-" + n.slice(7);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[type="tel"]'), function(i){
+    i.addEventListener("input", function(){ i.value = maskPhone(i.value); });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".js-form"), function(form){
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var nome  = form.querySelector('input[name="nome"]');
+      var email = form.querySelector('input[name="email"]');
+      var zap   = form.querySelector('input[name="whatsapp"]');
+      var ok = true;
+      ok = mark(nome,  nome.value.trim().length >= 2) && ok;
+      ok = mark(email, /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email.value.trim())) && ok;
+      ok = mark(zap,   zap.value.replace(/\D/g,"").length >= 10) && ok;
+      if (!ok){ form.querySelector(".field.is-err input").focus(); return; }
+
+      /* >>> INTEGRAÇÃO: envie os dados para sua ferramenta de captura aqui.
+         Ex.: fetch(ENDPOINT, { method:"POST", body:new FormData(form) })
+              .then(function(){ concluir(); });                                */
+      form.closest(".form-card").classList.add("is-sent");
+    });
+  });
+
+  /* ---------- 5. BARRA DE CTA FIXA ---------- */
+  var bar = document.getElementById("stickybar");
+  var finalSec = document.getElementById("inscricao-final");
+  var ticking = false;
+  function onScroll(){
+    var pastHero = window.scrollY > window.innerHeight * 0.85;
+    var rect = finalSec.getBoundingClientRect();
+    var atFinal = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+    bar.classList.toggle("is-on", pastHero && !atFinal);
+    ticking = false;
+  }
+  window.addEventListener("scroll", function(){
+    if (!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive:true });
+  onScroll();
+
+  /* ---------- 6. ANIMAÇÕES (GSAP) ---------- */
+  function initAnim(){
+    if (!window.gsap || !window.ScrollTrigger || reduce){
+      document.documentElement.classList.remove("js-anim");
+      window.__animReady = true;
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+    window.__animReady = true;
+
+    /* 6.1 Entrada do hero: fade curto, sem exagero */
+    var heroItems = document.querySelectorAll(".hero .anim");
+    gsap.set(heroItems, { autoAlpha:0, y:22 });
+    gsap.timeline({ delay:.15 })
+      .to(heroItems, { autoAlpha:1, y:0, duration:1, ease:"power3.out", stagger:.09 })
+      .fromTo("#hl-margem",
+        { color:"#FFFFFF" },
+        { color:"#E30613", duration:1.1, ease:"power2.inOut" }, "-=.65");
+
+    /* 6.2 Revelação das seções ao rolar */
+    Array.prototype.forEach.call(document.querySelectorAll(".anim"), function(el){
+      if (el.closest(".hero")) return;
+      var fade = el.getAttribute("data-anim") === "fade";
+      gsap.fromTo(el,
+        { autoAlpha:0, y: fade ? 0 : 26, scale: fade ? .97 : 1 },
+        { autoAlpha:1, y:0, scale:1, duration:.95, ease:"power3.out",
+          scrollTrigger:{ trigger:el, start:"top 88%", once:true } });
+    });
+
+    /* 6.3 Retrato com leve inclinação 3D acompanhando o mouse */
+    var frame = document.getElementById("portrait-hero");
+    if (frame && window.matchMedia("(pointer:fine)").matches){
+      frame.parentNode.style.perspective = "1100px";
+      var raf = 0;
+      window.addEventListener("mousemove", function(e){
+        if (window.scrollY > window.innerHeight * 1.4) return;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function(){
+          var x = (e.clientX / window.innerWidth - .5) * 2;
+          var y = (e.clientY / window.innerHeight - .5) * 2;
+          gsap.to(frame, { rotationY:x * 5, rotationX:-y * 5, duration:1.1, ease:"power3.out" });
+        });
+      });
+    }
+
+    /* 6.4 Momento cinematográfico: a frase de impacto
+       O card avança, as linhas do statement são reveladas por wipe
+       e as duas colunas de contraste entram pelas laterais.        */
+    var card = document.getElementById("impact-card");
+    if (card && window.matchMedia("(pointer:fine)").matches){
+      card.addEventListener("mousemove", function(e){
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    }
+
+    ScrollTrigger.matchMedia({
+      /* Desktop: seção fixada, revelação em scrub */
+      "(min-width: 900px)": function(){
+        gsap.timeline({
+          scrollTrigger:{ trigger:"#impact", start:"top top", end:"+=1100",
+                          pin:true, scrub:.8, anticipatePin:1 }
+        })
+        .fromTo("#impact-card",
+          { scale:.94, y:44, autoAlpha:.85 },
+          { scale:1, y:0, autoAlpha:1, ease:"power2.out", duration:1.6 }, 0)
+        .fromTo("#impact .mesh",
+          { scale:1.1, autoAlpha:.22 },
+          { scale:1, autoAlpha:.62, ease:"none", duration:2.2 }, 0)
+        .fromTo(".imp-line",
+          { clipPath:"inset(0 100% 0 0)" },
+          { clipPath:"inset(0 0% 0 0)", ease:"power3.out", duration:1.1, stagger:.55 }, 0)
+        .fromTo(".imp-sub",
+          { autoAlpha:0, y:18 },
+          { autoAlpha:1, y:0, ease:"power3.out", duration:.9 }, 1.5)
+        .fromTo(".imp-col",
+          { autoAlpha:0, x:function(i){ return i === 0 ? -30 : 30; } },
+          { autoAlpha:1, x:0, ease:"power3.out", duration:1, stagger:.25 }, 1.9)
+        .to({}, { duration:1 });
+      },
+      /* Mobile: mesma narrativa, sem pin, para não travar a rolagem */
+      "(max-width: 899px)": function(){
+        gsap.fromTo("#impact-card",
+          { autoAlpha:0, y:40, scale:.96 },
+          { autoAlpha:1, y:0, scale:1, duration:1, ease:"power3.out",
+            scrollTrigger:{ trigger:"#impact", start:"top 75%", once:true } });
+        gsap.fromTo(".imp-line",
+          { clipPath:"inset(0 100% 0 0)" },
+          { clipPath:"inset(0 0% 0 0)", duration:1, ease:"power4.out", stagger:.25,
+            scrollTrigger:{ trigger:"#impact", start:"top 62%", once:true } });
+        gsap.fromTo([".imp-sub", ".imp-col"],
+          { autoAlpha:0, y:24 },
+          { autoAlpha:1, y:0, duration:.9, ease:"power3.out", stagger:.15,
+            scrollTrigger:{ trigger:".impact__sub", start:"top 88%", once:true } });
+      }
+    });
+  }
+
+  if (document.readyState === "complete") initAnim();
+  else window.addEventListener("load", initAnim);
+})();
+</script>
+</body>
+</html>

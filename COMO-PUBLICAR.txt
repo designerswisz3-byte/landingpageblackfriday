@@ -1,0 +1,71 @@
+COMO PUBLICAR NO NETLIFY DROP
+
+1. Acesse https://app.netlify.com/drop
+2. Arraste a PASTA "site" inteira (ou o arquivo .zip) para a área indicada.
+3. Em poucos segundos o Netlify devolve uma URL pública do tipo
+   https://nome-aleatorio.netlify.app
+4. Para trocar o endereço: Site configuration > Change site name.
+5. Para domínio próprio: Domain management > Add a domain.
+
+O que já está pronto:
+  - Página one-page responsiva, sem build e sem dependências locais.
+  - Contador regressivo para 07/10/2026 19:00 (horário de Brasília).
+  - 3 formulários (hero, urgência e final) com validação e máscara de WhatsApp.
+  - Animação GSAP carregada por CDN, com degradação segura se a CDN falhar.
+
+O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
+
+1. FOTO DO RAPHAEL
+   Coloque assets/raphael.jpg (ver assets/LEIA-ME.txt).
+
+2. CAPTURA DOS LEADS
+   Hoje o formulário valida e mostra a confirmação, mas NÃO envia os dados
+   para lugar nenhum. Procure no index.html o comentário ">>> INTEGRAÇÃO"
+   e escolha um caminho:
+
+   a) Netlify Forms (mais rápido, zero backend):
+      em cada <form class="js-form"> acrescente os atributos
+        name="inscricao-black-friday" data-netlify="true"
+      adicione dentro do form
+        <input type="hidden" name="form-name" value="inscricao-black-friday">
+      e troque a linha
+        form.closest(".form-card").classList.add("is-sent");
+      por um fetch para "/" com os dados, ou simplesmente remova o
+      ev.preventDefault() para deixar o envio nativo acontecer.
+
+   b) Sua ferramenta de e-mail/CRM (ActiveCampaign, RD, Lead Lovers etc.):
+      troque o action="#" pelo endpoint do formulário da ferramenta,
+      ou use o fetch indicado no comentário de integração.
+
+3. PIXEL E ANALYTICS
+   Meta Pixel, GA4 e evento de conversão no submit do formulário.
+
+4. PÁGINA DE OBRIGADO
+   Se preferir redirecionar em vez de mostrar a confirmação inline,
+   troque a linha do "is-sent" por window.location = "/obrigado.html".
+
+---------------------------------------------
+
+FOTOS
+
+Coloque a foto do Raphael nesta pasta com o nome exato:
+
+  raphael.jpg
+
+A imagem aparece em dois pontos da página (hero e seção do apresentador).
+Enquanto o arquivo não existir, a página mostra um placeholder elegante
+no lugar, sem quebrar o layout.
+
+Recomendação de imagem:
+  - Proporção 4:5 (ex.: 1200 x 1500 px)
+  - Recorte do peito para cima, olhando para a câmera
+  - Fundo escuro ou recortado, para o glow vermelho funcionar
+  - Peso até 400 KB (JPG, qualidade 80)
+
+LOGO
+
+O logo atual é um placeholder em SVG desenhado no próprio HTML
+(símbolo "A" vermelho + wordmark "aSSELLERa" em Baskervville).
+Para usar o logo oficial, substitua o bloco <svg class="logo__mark">
+no index.html por <img src="assets/logo.svg" class="logo__mark" alt="aSSELLERa">.
+Ele aparece em dois lugares: no topo (nav) e no rodapé.

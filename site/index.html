@@ -218,7 +218,6 @@ p:last-child{margin-bottom:0}
     linear-gradient(180deg, rgba(17,17,17,.50) 0%, rgba(17,17,17,0) 20%, rgba(17,17,17,0) 58%, rgba(17,17,17,.94) 100%),
     radial-gradient(40vw 62vh at 77% 44%, rgba(227,6,19,.24) 0%, transparent 70%);
 }
-.hero__mesh{ z-index:2; -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 62%); mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 62%); }
 
 .hero__grid{ position:relative; z-index:3; }
 .hero__col{ width:100%; max-width:560px; }
@@ -301,12 +300,6 @@ p:last-child{margin-bottom:0}
       #111111 100px);
   }
   .hero__veil{ display:none; }
-  /* A malha fica só na parte preta, para não riscar a imagem */
-  .hero__mesh{
-    opacity:.2;
-    -webkit-mask-image:linear-gradient(180deg, transparent 0%, transparent 34%, #000 58%);
-    mask-image:linear-gradient(180deg, transparent 0%, transparent 34%, #000 58%);
-  }
   .hero__grid{ padding-top:0; }
   .hero__col{ max-width:none; }
 
@@ -389,7 +382,17 @@ p:last-child{margin-bottom:0}
   will-change:transform;
 }
 .portrait__frame img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
-.speaker__img{ object-position:74% 20% !important; filter:saturate(.78) contrast(1.06) brightness(.9); }
+.speaker__img{
+  object-position:53% center !important;
+  filter:saturate(.56) contrast(1.18) brightness(.55);
+}
+/* Véu da moldura: kiss vermelho no alto e vinheta na base */
+.portrait__frame--graded::after{
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:
+    radial-gradient(70% 55% at 8% 4%, rgba(227,6,19,.16) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(17,17,17,.24) 0%, rgba(17,17,17,0) 32%, rgba(17,17,17,.38) 74%, rgba(17,17,17,.86) 100%);
+}
 .portrait__ph{ display:none; }
 .portrait__frame.is-empty .portrait__ph{
   position:absolute; inset:0; display:flex; flex-direction:column;
@@ -771,7 +774,6 @@ html.js-anim .anim{ visibility:hidden; }
     <img src="assets/raphael-hero.webp" alt="" class="js-photo" width="1672" height="941" fetchpriority="high">
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
-  <div class="mesh mesh--strong hero__mesh" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
 
   <div class="wrap hero__grid">
     <div class="hero__col">
@@ -963,8 +965,8 @@ html.js-anim .anim{ visibility:hidden; }
   <div class="wrap speaker__grid">
     <div class="portrait anim" data-anim="fade">
       <div class="glow portrait__glow" style="width:clamp(260px,34vw,440px);height:clamp(260px,34vw,440px)" aria-hidden="true"></div>
-      <figure class="portrait__frame" style="margin:0;max-width:420px">
-        <img src="assets/raphael-hero.webp" alt="Raphael Araújo" class="js-photo speaker__img" width="1672" height="941">
+      <figure class="portrait__frame portrait__frame--graded" style="margin:0;max-width:420px">
+        <img src="assets/raphael-mesa.webp" alt="Raphael Araújo" class="js-photo speaker__img" width="1200" height="800">
         <div class="portrait__ph">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
           <span>Foto do Raphael<br>assets/raphael.jpg</span>

@@ -50,17 +50,25 @@ O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
 
 FOTOS
 
-A foto em uso é assets/raphael-hero.webp (1672 x 941, 146 KB).
+São duas fotos:
 
-Ela aparece em dois pontos:
-  - dobra: imagem de fundo inteira, com véu escuro à esquerda onde fica o texto
-  - seção do apresentador: mesma imagem recortada em 4:5 sobre o Raphael
+  assets/raphael-hero.webp  (1672 x 941, 146 KB)
+  usada na dobra, como imagem de fundo inteira, com véu preto à
+  esquerda no desktop e dissolução para o preto no mobile.
 
-Para trocar a foto, substitua o arquivo mantendo o mesmo nome.
+  assets/raphael-mesa.webp  (1200 x 800, 60 KB)
+  usada na seção "Com quem você vai aprender", recortada em 4:5.
+  Como o original é claro, ela recebe uma gradação em CSS
+  (saturate .56, contrast 1.18, brightness .55) mais um véu com
+  toque vermelho no canto, para entrar no preto e vermelho da marca.
+  Se trocar por outra foto, reveja esses valores em .speaker__img
+  e em .portrait__frame--graded.
+
+Para trocar uma foto, substitua o arquivo mantendo o mesmo nome.
 Se quiser ajustar o enquadramento, procure no index.html:
   .hero__photo img  -> object-position:74% center            (dobra, desktop)
   .hero__photo img  -> transform:scale(1.5) translateY(-5%)  (dobra, mobile)
-  .speaker__img     -> object-position:74% 20%               (retrato)
+  .speaker__img     -> object-position:53% center             (retrato)
 No object-position o primeiro número move na horizontal e o segundo na
 vertical. No mobile, scale aproxima e translateY sobe ou desce o Raphael.
 

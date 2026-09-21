@@ -9,16 +9,16 @@ COMO PUBLICAR NO NETLIFY DROP
 
 O que já está pronto:
   - Página one-page responsiva, sem build e sem dependências locais.
+  - Foto do Raphael já aplicada (assets/raphael-hero.webp), usada como
+    imagem full-bleed da dobra e como retrato na seção do apresentador.
+  - Dobra dimensionada para caber inteira na tela no desktop, sem rolagem.
   - Contador regressivo para 07/10/2026 19:00 (horário de Brasília).
   - 3 formulários (hero, urgência e final) com validação e máscara de WhatsApp.
   - Animação GSAP carregada por CDN, com degradação segura se a CDN falhar.
 
 O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
 
-1. FOTO DO RAPHAEL
-   Coloque assets/raphael.jpg (ver assets/LEIA-ME.txt).
-
-2. CAPTURA DOS LEADS
+1. CAPTURA DOS LEADS
    Hoje o formulário valida e mostra a confirmação, mas NÃO envia os dados
    para lugar nenhum. Procure no index.html o comentário ">>> INTEGRAÇÃO"
    e escolha um caminho:
@@ -37,10 +37,10 @@ O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
       troque o action="#" pelo endpoint do formulário da ferramenta,
       ou use o fetch indicado no comentário de integração.
 
-3. PIXEL E ANALYTICS
+2. PIXEL E ANALYTICS
    Meta Pixel, GA4 e evento de conversão no submit do formulário.
 
-4. PÁGINA DE OBRIGADO
+3. PÁGINA DE OBRIGADO
    Se preferir redirecionar em vez de mostrar a confirmação inline,
    troque a linha do "is-sent" por window.location = "/obrigado.html".
 
@@ -48,19 +48,20 @@ O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
 
 FOTOS
 
-Coloque a foto do Raphael nesta pasta com o nome exato:
+A foto em uso é assets/raphael-hero.webp (1672 x 941, 146 KB).
 
-  raphael.jpg
+Ela aparece em dois pontos:
+  - dobra: imagem de fundo inteira, com véu escuro à esquerda onde fica o texto
+  - seção do apresentador: mesma imagem recortada em 4:5 sobre o Raphael
 
-A imagem aparece em dois pontos da página (hero e seção do apresentador).
-Enquanto o arquivo não existir, a página mostra um placeholder elegante
-no lugar, sem quebrar o layout.
+Para trocar a foto, substitua o arquivo mantendo o mesmo nome.
+Se quiser ajustar o enquadramento, procure no index.html:
+  .hero__photo img  -> object-position:74% center   (dobra, desktop)
+  .speaker__img     -> object-position:74% 20%      (retrato)
+O primeiro número move na horizontal, o segundo na vertical.
 
-Recomendação de imagem:
-  - Proporção 4:5 (ex.: 1200 x 1500 px)
-  - Recorte do peito para cima, olhando para a câmera
-  - Fundo escuro ou recortado, para o glow vermelho funcionar
-  - Peso até 400 KB (JPG, qualidade 80)
+Se o arquivo não existir, a página não quebra: a dobra fica preta e o
+retrato mostra um placeholder com moldura pontilhada.
 
 LOGO
 

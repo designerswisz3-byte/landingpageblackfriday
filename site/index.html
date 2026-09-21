@@ -83,8 +83,7 @@ p:last-child{margin-bottom:0}
 
 .h-display{
   font-family:var(--serif); font-weight:400; color:var(--white);
-  font-size:clamp(1.85rem, 3.05vw, 2.55rem); line-height:1.16; letter-spacing:-.015em;
-  max-width:22ch;
+  font-size:clamp(1.7rem, 2.45vw, 2.25rem); line-height:1.16; letter-spacing:-.015em;
 }
 .h-section{
   font-family:var(--serif); font-weight:400; color:var(--white);
@@ -186,25 +185,109 @@ p:last-child{margin-bottom:0}
 .nav__cta:hover{ border-color:var(--red); color:#fff; background:rgba(227,6,19,.07); }
 
 /* ---------- 7. HERO ---------- */
-.hero{ position:relative; overflow:hidden; padding-block:clamp(28px,3.4vw,44px) clamp(52px,7vw,92px); }
-.hero__grid{
-  position:relative; z-index:2; display:grid; gap:clamp(40px,5vw,64px);
-  grid-template-columns:1fr; align-items:center;
-}
-@media(min-width:980px){
-  .hero__grid{ grid-template-columns:1.02fr .98fr; gap:clamp(40px,5vw,72px); }
-}
-.hero h1{ margin-bottom:22px; }
-.hero__sub{ margin-bottom:22px; }
-.hero__sub .lead{ font-size:clamp(.98rem,1.25vw,1.06rem); max-width:52ch; }
-.hero__date{
-  display:inline-flex; align-items:center; gap:11px; margin-bottom:30px;
-  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
-  font-size:clamp(12px,1.35vw,14px); font-weight:600; color:var(--off);
-  border-left:2px solid var(--red); padding:6px 0 6px 14px;
+/* A dobra ocupa exatamente a altura livre abaixo da topbar + nav.
+   --chrome é medido por JS; o valor abaixo é só o fallback.        */
+:root{ --chrome:141px; }
+
+.hero{
+  position:relative; overflow:hidden; display:flex; align-items:center;
+  min-height:calc(100svh - var(--chrome));
+  padding-block:clamp(18px, 2.4vh, 40px);
 }
 
-/* Retrato com glow */
+/* Foto full-bleed */
+.hero__photo{ position:absolute; inset:0; z-index:0; }
+.hero__photo img{
+  width:100%; height:100%; object-fit:cover; object-position:74% center;
+  filter:saturate(.78) contrast(1.06) brightness(.9);
+  will-change:transform;
+}
+/* Véu: sólido à esquerda (onde fica o texto), limpo sobre o Raphael */
+.hero__veil{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      #111111 0%, #111111 17%,
+      rgba(17,17,17,.97) 28%,
+      rgba(17,17,17,.86) 38%,
+      rgba(17,17,17,.60) 47%,
+      rgba(17,17,17,.30) 56%,
+      rgba(17,17,17,.09) 66%,
+      rgba(17,17,17,0) 78%),
+    linear-gradient(180deg, rgba(17,17,17,.50) 0%, rgba(17,17,17,0) 20%, rgba(17,17,17,0) 58%, rgba(17,17,17,.94) 100%),
+    radial-gradient(40vw 62vh at 77% 44%, rgba(227,6,19,.24) 0%, transparent 70%);
+}
+.hero__mesh{ z-index:2; -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 62%); mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 62%); }
+
+.hero__grid{ position:relative; z-index:3; }
+.hero__col{ width:100%; max-width:560px; }
+@media(min-width:1100px){ .hero__col{ max-width:min(560px, 52%); } }
+
+.hero h1{ margin-bottom:clamp(12px,1.8vh,20px); }
+.hero__sub{ margin-bottom:clamp(12px,1.8vh,20px); }
+.hero .kicker{ margin-bottom:clamp(12px,1.8vh,18px); }
+.hero__date{
+  display:inline-flex; align-items:center; gap:11px;
+  margin:0 0 clamp(16px,2.4vh,24px);
+  font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
+  font-size:clamp(12px,1.35vw,14px); font-weight:600; color:var(--off);
+  border-left:2px solid var(--red); padding:5px 0 5px 13px;
+}
+
+/* Telas baixas: a dobra encolhe em vez de empurrar o formulário para fora */
+@media(min-width:980px) and (max-height:860px){
+  .hero .h-display{ font-size:clamp(1.5rem,2.1vw,1.95rem); }
+  .hero__sub{ font-size:.98rem !important; }
+}
+/* Vale para notebook 768 e para celular: tira respiro sem tirar conteúdo */
+@media(max-height:880px){
+  .hero{ padding-block:clamp(12px,1.6vh,22px); }
+  .hero .kicker{ margin-bottom:10px }
+  .hero h1{ margin-bottom:10px }
+  .hero__sub{ margin-bottom:10px; font-size:.95rem !important; line-height:1.5 }
+  .hero__date{ margin-bottom:13px; padding-block:3px }
+  .form-card--compact{ padding:17px 20px }
+  .form-card--compact .form-card__title{ margin-bottom:11px }
+  .form-card--compact .field{ margin-bottom:8px }
+  .form-card--compact input{ padding:11px 14px; font-size:15px }
+  .form-card--compact .btn{ padding:13px 20px; margin-top:6px }
+  .form-card--compact .microcopy{ margin-top:9px; font-size:11px; line-height:1.45 }
+}
+@media(min-width:980px) and (max-height:800px){
+  .hero .h-display{ font-size:1.68rem; line-height:1.18; }
+}
+
+/* Mobile e tablet: o véu vira vertical, o Raphael fica no topo da moldura */
+@media(max-width:979px){
+  /* Empilhado: a foto ganha faixa própria, o texto fica sobre preto sólido.
+     Sobrepor o Raphael ao texto em 390px mata a legibilidade dos dois.   */
+  .hero{ display:block; min-height:auto; padding:0 0 clamp(34px,7vw,52px); }
+  .hero__photo{ position:relative; inset:auto; height:min(34vh, 290px); }
+  .hero__photo img{ object-position:72% 16%; }
+  .hero__photo::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      linear-gradient(180deg, rgba(17,17,17,.30) 0%, rgba(17,17,17,.06) 40%, rgba(17,17,17,.78) 84%, #111111 100%),
+      radial-gradient(64vw 30vh at 68% 42%, rgba(227,6,19,.22) 0%, transparent 70%);
+  }
+  .hero__veil{ display:none; }
+  /* A malha começa abaixo da faixa da foto, para não riscar a imagem */
+  .hero__mesh{ -webkit-mask-image:none; mask-image:none; opacity:.22; top:min(34vh,290px); }
+  .hero__grid{ padding-top:clamp(22px,5.5vw,32px); }
+  .hero__col{ max-width:none; }
+  /* Topbar em uma linha só, para o conteúdo começar mais acima */
+  .topbar__in{ padding-block:9px; gap:10px; }
+  .topbar__date{ font-size:10px; letter-spacing:.1em; }
+  .countdown{ gap:11px; }
+  .cd{ min-width:30px }
+  .nav__in{ padding-block:14px }
+}
+@media(max-width:560px){
+  .topbar__date span.live-dot{ margin-right:2px }
+  .nav__cta{ padding:8px 13px; font-size:11px }
+}
+
+/* Retrato do apresentador (seção 5.8) */
 .portrait{ position:relative; z-index:2; display:flex; justify-content:center; }
 .portrait__glow{
   width:clamp(300px,42vw,520px); height:clamp(300px,42vw,520px);
@@ -220,7 +303,9 @@ p:last-child{margin-bottom:0}
   will-change:transform;
 }
 .portrait__frame img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
-.portrait__ph{
+.speaker__img{ object-position:74% 20% !important; filter:saturate(.78) contrast(1.06) brightness(.9); }
+.portrait__ph{ display:none; }
+.portrait__frame.is-empty .portrait__ph{
   position:absolute; inset:0; display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:14px; text-align:center; padding:28px;
   margin:12px; border:1px dashed rgba(227,6,19,.2); border-radius:2px;
@@ -230,21 +315,26 @@ p:last-child{margin-bottom:0}
   font-family:var(--cond); text-transform:uppercase; letter-spacing:.18em;
   font-size:11px; color:var(--gray-brand);
 }
-.portrait__tag{
-  position:absolute; z-index:3; left:0; bottom:0; right:0;
-  padding:26px 22px 18px;
-  background:linear-gradient(180deg, transparent, rgba(13,13,13,.92));
-  font-family:var(--cond); text-transform:uppercase; letter-spacing:.14em;
-  font-size:12px; font-weight:600; color:var(--off);
-  display:flex; align-items:center; gap:10px;
-}
-.portrait__tag b{ color:var(--red); font-weight:600 }
 
 /* ---------- 8. FORMULÁRIO ---------- */
 .form-card{
   position:relative; background:var(--card); border:1px solid var(--line);
   border-radius:var(--radius); padding:clamp(24px,3.2vw,34px);
   box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
+}
+/* Variante da dobra: mesma hierarquia, menos respiro, para caber sem rolagem */
+.form-card--compact{
+  padding:clamp(20px,2.6vh,26px) clamp(20px,2.4vw,26px);
+  background:rgba(30,30,30,.92);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.form-card--compact .form-card__title{ font-size:clamp(1.1rem,1.6vw,1.3rem); margin-bottom:14px; }
+.form-card--compact .btn{ padding:15px 22px; margin-top:8px; }
+.form-card--compact .microcopy{ margin-top:11px; font-size:11.5px; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
 }
 .form-card::before{
   content:""; position:absolute; left:0; top:0; height:2px; width:64px; background:var(--red);
@@ -253,14 +343,14 @@ p:last-child{margin-bottom:0}
   font-family:var(--serif); font-size:clamp(1.25rem,2vw,1.55rem);
   color:var(--white); margin-bottom:20px; line-height:1.25;
 }
-.field{ margin-bottom:12px; }
+.field{ margin-bottom:10px; }
 .field label{
   display:block; font-family:var(--cond); text-transform:uppercase;
   letter-spacing:.14em; font-size:10.5px; color:var(--text-dim); margin-bottom:7px;
 }
 .field input{
   width:100%; background:#171717; border:1px solid #303030; border-radius:var(--radius);
-  padding:14px 15px; font-family:var(--sans); font-weight:400; font-size:15.5px; color:var(--off);
+  padding:13px 15px; font-family:var(--sans); font-weight:400; font-size:15.5px; color:var(--off);
   transition:border-color .25s, background .25s, box-shadow .25s;
 }
 .field input::placeholder{ color:#5C5C5C; }
@@ -589,40 +679,39 @@ html.js-anim .anim{ visibility:hidden; }
 </nav>
 
 <!-- ========== 5.2 PRIMEIRA DOBRA ========== -->
-<main id="topo">
 <section class="hero">
-  <div class="mesh mesh--strong" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
-  <div class="rule-v" style="left:12%" aria-hidden="true"></div>
-  <div class="rule-v" style="right:16%" aria-hidden="true"></div>
+  <!-- Foto full-bleed: o lado esquerdo da imagem já é escuro, o véu reforça -->
+  <div class="hero__photo" aria-hidden="true">
+    <img src="assets/raphael-hero.webp" alt="" class="js-photo" width="1672" height="941" fetchpriority="high">
+  </div>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="mesh mesh--strong hero__mesh" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#hexpat)"/></svg></div>
 
   <div class="wrap hero__grid">
     <div class="hero__col">
       <p class="kicker anim" data-anim="up">Black Friday 2026 para e-commerces de moda</p>
       <h1 class="h-display anim" data-anim="up">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</h1>
-      <div class="hero__sub anim" data-anim="up">
-        <p class="lead">Participe desta live gratuita e descubra como transformar metas de vendas em um planejamento completo de estoque, ofertas, marketing e operação.</p>
-        <p class="lead">Raphael mostrará, de forma prática, como preparar seu e-commerce de moda para aproveitar a maior campanha comercial do ano com estratégia, números e capacidade de execução.</p>
-      </div>
+      <p class="hero__sub lead anim" data-anim="up">Participe desta live gratuita e descubra como transformar metas de vendas em um planejamento completo de estoque, ofertas, marketing e operação.</p>
       <p class="hero__date anim" data-anim="up">Quarta-feira, 07 de outubro, às 19h</p>
 
       <!-- FORMULÁRIO 1 -->
-      <div class="form-card anim" data-anim="up" id="inscricao">
+      <div class="form-card form-card--compact anim" data-anim="up" id="inscricao">
         <div class="form-body">
           <h2 class="form-card__title">Garanta sua inscrição gratuita</h2>
           <!-- Troque o action pelo endpoint da sua ferramenta de captura -->
           <form class="js-form" action="#" method="post" novalidate>
             <div class="field">
-              <label for="n1">Nome</label>
+              <label class="sr-only" for="n1">Nome</label>
               <input id="n1" name="nome" type="text" placeholder="Digite seu nome" autocomplete="name" required>
               <span class="field__err">Informe seu nome</span>
             </div>
             <div class="field">
-              <label for="e1">E-mail</label>
+              <label class="sr-only" for="e1">E-mail</label>
               <input id="e1" name="email" type="email" placeholder="Digite seu melhor e-mail" autocomplete="email" required>
               <span class="field__err">Informe um e-mail válido</span>
             </div>
             <div class="field">
-              <label for="w1">WhatsApp</label>
+              <label class="sr-only" for="w1">WhatsApp</label>
               <input id="w1" name="whatsapp" type="tel" placeholder="Digite seu WhatsApp" autocomplete="tel" inputmode="numeric" required>
               <span class="field__err">Informe um WhatsApp válido</span>
             </div>
@@ -640,19 +729,6 @@ html.js-anim .anim{ visibility:hidden; }
           <p class="microcopy" style="justify-content:center">As informações de acesso serão enviadas pelos canais cadastrados.</p>
         </div>
       </div>
-    </div>
-
-    <div class="portrait anim" data-anim="fade">
-      <div class="glow portrait__glow" aria-hidden="true"></div>
-      <figure class="portrait__frame" id="portrait-hero" style="margin:0">
-        <!-- Coloque a foto do Raphael em assets/raphael.jpg -->
-        <img src="assets/raphael.jpg" alt="Raphael Araújo, CEO da Swisz" class="js-photo" width="940" height="1175">
-        <div class="portrait__ph">
-          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-          <span>Foto do Raphael<br>assets/raphael.jpg</span>
-        </div>
-        <figcaption class="portrait__tag"><b>◆</b> Raphael Araújo · CEO da Swisz</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -711,6 +787,7 @@ html.js-anim .anim{ visibility:hidden; }
   <div class="wrap" style="position:relative;z-index:2">
     <p class="kicker anim" data-anim="up">Conteúdo</p>
     <h2 class="h-section anim" data-anim="up">O que Raphael abordará durante a live</h2>
+    <p class="lead anim" data-anim="up" style="margin-top:20px">Raphael mostrará, de forma prática, como preparar seu e-commerce de moda para aproveitar a maior campanha comercial do ano com estratégia, números e capacidade de execução.</p>
 
     <div class="modules">
       <article class="module anim" data-anim="up">
@@ -800,7 +877,7 @@ html.js-anim .anim{ visibility:hidden; }
     <div class="portrait anim" data-anim="fade">
       <div class="glow portrait__glow" style="width:clamp(260px,34vw,440px);height:clamp(260px,34vw,440px)" aria-hidden="true"></div>
       <figure class="portrait__frame" style="margin:0;max-width:420px">
-        <img src="assets/raphael.jpg" alt="Raphael Araújo" class="js-photo" width="840" height="1050">
+        <img src="assets/raphael-hero.webp" alt="Raphael Araújo" class="js-photo speaker__img" width="1672" height="941">
         <div class="portrait__ph">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E30613" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
           <span>Foto do Raphael<br>assets/raphael.jpg</span>
@@ -1016,9 +1093,25 @@ html.js-anim .anim{ visibility:hidden; }
   }
   tick(); setInterval(tick, 1000);
 
+  /* ---------- 1b. ALTURA DA DOBRA ----------
+     A hero ocupa a altura livre da tela: 100svh menos topbar e nav.  */
+  var topbarEl = document.querySelector(".topbar");
+  var navEl = document.querySelector(".nav");
+  function setChrome(){
+    var h = topbarEl.offsetHeight + navEl.offsetHeight;
+    document.documentElement.style.setProperty("--chrome", h + "px");
+  }
+  setChrome();
+  window.addEventListener("resize", setChrome);
+  window.addEventListener("load", setChrome);
+
   /* ---------- 2. FOTO: fallback para o placeholder ---------- */
   Array.prototype.forEach.call(document.querySelectorAll(".js-photo"), function(img){
-    function fail(){ img.style.display = "none"; }
+    function fail(){
+      img.style.display = "none";
+      var frame = img.closest(".portrait__frame");
+      if (frame) frame.classList.add("is-empty");
+    }
     img.addEventListener("error", fail);
     if (img.complete && img.naturalWidth === 0) fail();
   });
@@ -1128,20 +1221,21 @@ html.js-anim .anim{ visibility:hidden; }
           scrollTrigger:{ trigger:el, start:"top 88%", once:true } });
     });
 
-    /* 6.3 Retrato com leve inclinação 3D acompanhando o mouse */
-    var frame = document.getElementById("portrait-hero");
-    if (frame && window.matchMedia("(pointer:fine)").matches){
-      frame.parentNode.style.perspective = "1100px";
-      var raf = 0;
-      window.addEventListener("mousemove", function(e){
-        if (window.scrollY > window.innerHeight * 1.4) return;
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(function(){
-          var x = (e.clientX / window.innerWidth - .5) * 2;
-          var y = (e.clientY / window.innerHeight - .5) * 2;
-          gsap.to(frame, { rotationY:x * 5, rotationX:-y * 5, duration:1.1, ease:"power3.out" });
-        });
+    /* 6.3 Foto da dobra: parallax curto na rolagem e respiro no mouse */
+    var heroImg = document.querySelector(".hero__photo img");
+    if (heroImg){
+      gsap.fromTo(heroImg, { scale:1.06, yPercent:-2 }, {
+        scale:1.12, yPercent:3, ease:"none",
+        scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true }
       });
+      if (window.matchMedia("(pointer:fine)").matches){
+        /* quickTo não conflita com o tween de scrub acima */
+        var driftX = gsap.quickTo(heroImg, "xPercent", { duration:1.4, ease:"power3.out" });
+        window.addEventListener("mousemove", function(e){
+          if (window.scrollY > window.innerHeight) return;
+          driftX((e.clientX / window.innerWidth - .5) * -2.4);
+        }, { passive:true });
+      }
     }
 
     /* 6.4 Momento cinematográfico: a frase de impacto

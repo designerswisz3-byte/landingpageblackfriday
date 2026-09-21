@@ -139,6 +139,7 @@ p:last-child{margin-bottom:0}
   display:flex; align-items:center; justify-content:space-between; gap:18px;
   padding-block:11px; flex-wrap:wrap;
 }
+.t-short{ display:none }
 .topbar__date{
   font-family:var(--cond); text-transform:uppercase; letter-spacing:.13em;
   font-size:clamp(10.5px,1.1vw,12.5px); font-weight:600; color:var(--off);
@@ -196,7 +197,7 @@ p:last-child{margin-bottom:0}
 }
 
 /* Foto full-bleed */
-.hero__photo{ position:absolute; inset:0; z-index:0; }
+.hero__photo{ position:absolute; inset:0; z-index:0; overflow:hidden; }
 .hero__photo img{
   width:100%; height:100%; object-fit:cover; object-position:74% center;
   filter:saturate(.78) contrast(1.06) brightness(.9);
@@ -258,33 +259,118 @@ p:last-child{margin-bottom:0}
 }
 
 /* Mobile e tablet: o véu vira vertical, o Raphael fica no topo da moldura */
+/* ============================================================
+   MOBILE E TABLET: a dobra é uma peça só.
+   A foto ocupa o topo, o véu dissolve ela no preto e o texto
+   com o formulário sobem para dentro da imagem, ancorados na
+   base da tela. O que sobra de altura vira foto, então telas
+   maiores mostram mais Raphael sem empurrar o formulário.
+   ============================================================ */
 @media(max-width:979px){
-  /* Empilhado: a foto ganha faixa própria, o texto fica sobre preto sólido.
-     Sobrepor o Raphael ao texto em 390px mata a legibilidade dos dois.   */
-  .hero{ display:block; min-height:auto; padding:0 0 clamp(34px,7vw,52px); }
-  .hero__photo{ position:relative; inset:auto; height:min(34vh, 290px); }
-  .hero__photo img{ object-position:72% 16%; }
+  .hero{
+    display:flex; align-items:flex-end;
+    min-height:calc(100svh - var(--chrome));
+    padding:0 0 clamp(14px, 2.4vh, 26px);
+  }
+  .hero__photo{
+    position:absolute; top:0; left:0; right:0; bottom:auto;
+    height:clamp(300px, 52%, 460px);
+  }
+  /* Zoom ancorado no rosto: o corte vertical do 16:9 num retrato
+     deixaria o Raphael pequeno demais na faixa visível.          */
+  .hero__photo img{ object-position:92% 10%; transform:scale(1.5) translateY(-5%); transform-origin:68% 27%; }
+  /* Grade da foto: glow vermelho e um leve escurecer no topo.
+     A dissolução para o preto NÃO mora aqui.                 */
   .hero__photo::after{
     content:""; position:absolute; inset:0; pointer-events:none;
     background:
-      linear-gradient(180deg, rgba(17,17,17,.30) 0%, rgba(17,17,17,.06) 40%, rgba(17,17,17,.78) 84%, #111111 100%),
-      radial-gradient(64vw 30vh at 68% 42%, rgba(227,6,19,.22) 0%, transparent 70%);
+      radial-gradient(64vw 22vh at 68% 22%, rgba(227,6,19,.19) 0%, transparent 72%),
+      linear-gradient(180deg, rgba(17,17,17,.36) 0%, rgba(17,17,17,.04) 26%, rgba(17,17,17,.10) 100%);
+  }
+  /* A dissolução é ancorada no TEXTO, não na foto: 140px de rampa
+     terminando exatamente onde o primeiro elemento começa. Assim o
+     ponto de corte é o mesmo em qualquer altura de tela.          */
+  .hero__grid::before{
+    content:""; position:absolute; left:0; right:0; top:-100px; bottom:-60px;
+    z-index:-1; pointer-events:none;
+    background:linear-gradient(180deg,
+      rgba(17,17,17,0) 0px,
+      rgba(17,17,17,.46) 44px,
+      rgba(17,17,17,.88) 76px,
+      rgba(17,17,17,.99) 92px,
+      #111111 100px);
   }
   .hero__veil{ display:none; }
-  /* A malha começa abaixo da faixa da foto, para não riscar a imagem */
-  .hero__mesh{ -webkit-mask-image:none; mask-image:none; opacity:.22; top:min(34vh,290px); }
-  .hero__grid{ padding-top:clamp(22px,5.5vw,32px); }
+  /* A malha fica só na parte preta, para não riscar a imagem */
+  .hero__mesh{
+    opacity:.2;
+    -webkit-mask-image:linear-gradient(180deg, transparent 0%, transparent 34%, #000 58%);
+    mask-image:linear-gradient(180deg, transparent 0%, transparent 34%, #000 58%);
+  }
+  .hero__grid{ padding-top:0; }
   .hero__col{ max-width:none; }
-  /* Topbar em uma linha só, para o conteúdo começar mais acima */
-  .topbar__in{ padding-block:9px; gap:10px; }
-  .topbar__date{ font-size:10px; letter-spacing:.1em; }
-  .countdown{ gap:11px; }
-  .cd{ min-width:30px }
-  .nav__in{ padding-block:14px }
-}
-@media(max-width:560px){
-  .topbar__date span.live-dot{ margin-right:2px }
+
+  /* Dobra compacta: cada bloco no tamanho mínimo que ainda respira */
+  .hero .kicker{ font-size:10.5px; letter-spacing:.13em; margin-bottom:10px; }
+  .hero .kicker::before{ width:20px }
+  .hero .h-display{ font-size:clamp(1.22rem, 5.3vw, 1.52rem); line-height:1.2; margin-bottom:11px; }
+  #hl-margem{ white-space:nowrap; }
+  .hero__sub{ font-size:.88rem !important; line-height:1.5; margin-bottom:13px; }
+  .hero__date{ display:none; }
+  .form-card--compact{ padding:15px 16px; }
+  /* O botão já diz "live gratuita": o título do card é repetição aqui */
+  .form-card--compact .form-card__title{ display:none; }
+  .form-card--compact .field{ margin-bottom:7px; }
+  .form-card--compact input{ padding:11px 13px; font-size:15px; }
+  .form-card--compact .btn{ padding:14px 16px; font-size:12.5px; letter-spacing:.1em; margin-top:5px; }
+  .form-card--compact .microcopy{ margin-top:9px; font-size:10.5px; line-height:1.45; }
+
+  /* Topbar em uma linha: a data encurta, o contador fica compacto */
+  .topbar__in{ padding-block:8px; gap:8px; flex-wrap:nowrap; }
+  .topbar__date{ font-size:10px; letter-spacing:.08em; gap:7px; }
+  .t-full{ display:none }
+  .t-short{ display:inline }
+  .countdown{ gap:9px; }
+  .cd{ min-width:24px }
+  .cd__num{ font-size:16px }
+  .cd__lab{ font-size:7.5px; letter-spacing:.1em; margin-top:3px }
+  .nav__in{ padding-block:12px }
+  .logo__mark{ width:28px; height:28px }
+  .logo__name{ font-size:17px }
+  .logo__sub{ font-size:7.5px; letter-spacing:.26em; margin-top:4px }
   .nav__cta{ padding:8px 13px; font-size:11px }
+}
+
+/* Celulares de tela baixa (740, 768, 667): a subhead sai da dobra.
+   Sem esse corte só sobram ~95px de foto e o Raphael vira fantasma
+   atrás da dissolução. O headline já entrega a promessa sozinho.  */
+@media(max-width:979px) and (max-height:800px){
+  .hero__sub{ display:none; }
+  .hero__photo{ height:clamp(240px, 46%, 340px); }
+  .hero .h-display{ font-size:clamp(1.18rem, 5vw, 1.42rem); }
+  .hero__grid::before{
+    top:-84px;
+    background:linear-gradient(180deg,
+      rgba(17,17,17,0) 0px,
+      rgba(17,17,17,.48) 36px,
+      rgba(17,17,17,.9) 64px,
+      rgba(17,17,17,.99) 78px,
+      #111111 84px);
+  }
+}
+
+/* Telas de 667px e menos: sobram ~96px acima do texto. A rampa
+   encurta e a foto sobe, senão o rosto fica dentro da dissolução. */
+@media(max-width:979px) and (max-height:700px){
+  .hero__photo img{ transform:scale(1.5) translateY(-8%); }
+  .hero__grid::before{
+    top:-56px;
+    background:linear-gradient(180deg,
+      rgba(17,17,17,0) 0px,
+      rgba(17,17,17,.52) 24px,
+      rgba(17,17,17,.94) 44px,
+      #111111 56px);
+  }
 }
 
 /* Retrato do apresentador (seção 5.8) */
@@ -650,7 +736,7 @@ html.js-anim .anim{ visibility:hidden; }
 <!-- ========== 5.1 FAIXA SUPERIOR ========== -->
 <header class="topbar">
   <div class="wrap topbar__in">
-    <p class="topbar__date"><span class="live-dot" aria-hidden="true"></span>07 de outubro de 2026 · 19h · online e ao vivo</p>
+    <p class="topbar__date"><span class="live-dot" aria-hidden="true"></span><span class="t-full">07 de outubro de 2026 · 19h · online e ao vivo</span><span class="t-short">07/10/2026 · 19h · ao vivo</span></p>
     <div class="countdown" id="countdown" role="timer" aria-live="off" aria-label="Contagem regressiva para a live">
       <div class="cd"><span class="cd__num" id="cd-d">00</span><span class="cd__lab">Dias</span></div>
       <div class="cd"><span class="cd__num" id="cd-h">00</span><span class="cd__lab">Horas</span></div>
@@ -693,6 +779,7 @@ html.js-anim .anim{ visibility:hidden; }
       <h1 class="h-display anim" data-anim="up">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</h1>
       <p class="hero__sub lead anim" data-anim="up">Participe desta live gratuita e descubra como transformar metas de vendas em um planejamento completo de estoque, ofertas, marketing e operação.</p>
       <p class="hero__date anim" data-anim="up">Quarta-feira, 07 de outubro, às 19h</p>
+      <!-- No mobile esta linha é ocultada: a data já aparece na topbar e na barra fixa -->
 
       <!-- FORMULÁRIO 1 -->
       <div class="form-card form-card--compact anim" data-anim="up" id="inscricao">
@@ -1221,8 +1308,11 @@ html.js-anim .anim{ visibility:hidden; }
           scrollTrigger:{ trigger:el, start:"top 88%", once:true } });
     });
 
-    /* 6.3 Foto da dobra: parallax curto na rolagem e respiro no mouse */
-    var heroImg = document.querySelector(".hero__photo img");
+    /* 6.3 Foto da dobra: parallax curto na rolagem e respiro no mouse.
+       Só no desktop: no mobile a imagem usa o transform do CSS para
+       enquadrar o Raphael, e o GSAP sobrescreveria esse transform.  */
+    var heroImg = window.matchMedia("(min-width:980px)").matches
+      ? document.querySelector(".hero__photo img") : null;
     if (heroImg){
       gsap.fromTo(heroImg, { scale:1.06, yPercent:-2 }, {
         scale:1.12, yPercent:3, ease:"none",

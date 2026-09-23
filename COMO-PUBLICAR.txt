@@ -4,7 +4,7 @@ Cada build carrega um carimbo. Para checar:
   1. Abra a pagina publicada
   2. Ctrl+U (ou Cmd+Option+U no Mac) para ver o codigo fonte
   3. A segunda linha mostra, por exemplo:
-     <!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v6 -->
+     <!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v7 -->
 
 Se o numero do build nao for o do arquivo que voce acabou de subir,
 o navegador esta servindo cache: recarregue com Ctrl+Shift+R.
@@ -52,7 +52,7 @@ O que já está pronto:
     desktop (1366x768, 1440x900, 1920x1080) quanto no celular (iPhone SE,
     iPhone 12 a 16, Pixel, Galaxy e iPad).
   - Contador regressivo para 07/10/2026 19:00 (horário de Brasília).
-  - 3 formulários (hero, urgência e final) com validação e máscara de WhatsApp.
+  - 2 formulários (dobra e final) com validação e máscara de WhatsApp.
   - Animação GSAP carregada por CDN, com degradação segura se a CDN falhar.
 
 O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO

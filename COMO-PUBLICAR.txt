@@ -7,6 +7,22 @@ COMO PUBLICAR NO NETLIFY DROP
 4. Para trocar o endereço: Site configuration > Change site name.
 5. Para domínio próprio: Domain management > Add a domain.
 
+A DOBRA TEM DUAS MONTAGENS
+
+  Desktop (acima de 979px): foto full-bleed ao fundo, texto e formulário
+  na coluna esquerda sobre o gradiente preto.
+
+  Mobile e tablet (até 979px): três blocos empilhados, na ordem
+  headline centralizado, foto e depois subheadline com formulário.
+  O headline do mobile é outro texto, marcado no HTML como .hl-mob;
+  o do desktop é .hl-desk. Para mudar um dos dois, edite só o span
+  correspondente dentro do <h1>.
+
+  Na montagem mobile a foto é um item flex de base zero: ela recebe
+  exatamente a altura que sobra entre o headline e o formulário. Em
+  telas maiores aparece mais foto, sem nunca empurrar o formulário
+  para fora da tela.
+
 O que já está pronto:
   - Página one-page responsiva, sem build e sem dependências locais.
   - Foto do Raphael já aplicada (assets/raphael-hero.webp), usada como

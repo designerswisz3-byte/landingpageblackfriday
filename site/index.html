@@ -191,14 +191,25 @@ p:last-child{margin-bottom:0}
 :root{ --chrome:141px; }
 
 .hero{
-  position:relative; overflow:hidden; display:flex; align-items:center;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center;
   min-height:calc(100svh - var(--chrome));
   padding-block:clamp(18px, 2.4vh, 40px);
 }
+.hero__head, .hero__body{ position:relative; z-index:3; width:100%; }
+.hero__col{ width:100%; max-width:560px; }
+@media(min-width:1100px){ .hero__col{ max-width:min(560px, 52%); } }
+
+/* Duas versões do headline: a do desktop e a do mobile */
+.hl-mob{ display:none; }
 
 /* Foto full-bleed */
 .hero__photo{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+/* A imagem fica fora do fluxo de propósito: no mobile a foto é um item
+   flex de base 0, e a altura intrínseca do <img> vazava para o cálculo
+   de altura do container, inflando a dobra.                          */
 .hero__photo img{
+  position:absolute; inset:0;
   width:100%; height:100%; object-fit:cover; object-position:74% center;
   filter:saturate(.78) contrast(1.06) brightness(.9);
   will-change:transform;
@@ -219,10 +230,6 @@ p:last-child{margin-bottom:0}
     radial-gradient(40vw 62vh at 77% 44%, rgba(227,6,19,.24) 0%, transparent 70%);
 }
 
-.hero__grid{ position:relative; z-index:3; }
-.hero__col{ width:100%; max-width:560px; }
-@media(min-width:1100px){ .hero__col{ max-width:min(560px, 52%); } }
-
 .hero h1{ margin-bottom:clamp(12px,1.8vh,20px); }
 .hero__sub{ margin-bottom:clamp(12px,1.8vh,20px); }
 .hero .kicker{ margin-bottom:clamp(12px,1.8vh,18px); }
@@ -234,137 +241,20 @@ p:last-child{margin-bottom:0}
   border-left:2px solid var(--red); padding:5px 0 5px 13px;
 }
 
-/* Telas baixas: a dobra encolhe em vez de empurrar o formulário para fora */
+/* Telas baixas no desktop: a dobra encolhe em vez de empurrar o formulário */
 @media(min-width:980px) and (max-height:860px){
   .hero .h-display{ font-size:clamp(1.5rem,2.1vw,1.95rem); }
   .hero__sub{ font-size:.98rem !important; }
 }
-/* Vale para notebook 768 e para celular: tira respiro sem tirar conteúdo */
-@media(max-height:880px){
-  .hero{ padding-block:clamp(12px,1.6vh,22px); }
-  .hero .kicker{ margin-bottom:10px }
-  .hero h1{ margin-bottom:10px }
-  .hero__sub{ margin-bottom:10px; font-size:.95rem !important; line-height:1.5 }
-  .hero__date{ margin-bottom:13px; padding-block:3px }
-  .form-card--compact{ padding:17px 20px }
-  .form-card--compact .form-card__title{ margin-bottom:11px }
-  .form-card--compact .field{ margin-bottom:8px }
-  .form-card--compact input{ padding:11px 14px; font-size:15px }
-  .form-card--compact .btn{ padding:13px 20px; margin-top:6px }
-  .form-card--compact .microcopy{ margin-top:9px; font-size:11px; line-height:1.45 }
-}
-@media(min-width:980px) and (max-height:800px){
-  .hero .h-display{ font-size:1.68rem; line-height:1.18; }
-}
 
-/* Mobile e tablet: o véu vira vertical, o Raphael fica no topo da moldura */
+
 /* ============================================================
-   MOBILE E TABLET: a dobra é uma peça só.
-   A foto ocupa o topo, o véu dissolve ela no preto e o texto
-   com o formulário sobem para dentro da imagem, ancorados na
-   base da tela. O que sobra de altura vira foto, então telas
-   maiores mostram mais Raphael sem empurrar o formulário.
+   MOBILE E TABLET: a dobra é empilhada em três blocos.
+   1. headline centralizado, logo abaixo da navbar
+   2. foto, que absorve a altura que sobrar e dissolve no preto
+   3. subheadline e formulário
    ============================================================ */
-@media(max-width:979px){
-  .hero{
-    display:flex; align-items:flex-end;
-    min-height:calc(100svh - var(--chrome));
-    padding:0 0 clamp(14px, 2.4vh, 26px);
-  }
-  .hero__photo{
-    position:absolute; top:0; left:0; right:0; bottom:auto;
-    height:clamp(300px, 52%, 460px);
-  }
-  /* Zoom ancorado no rosto: o corte vertical do 16:9 num retrato
-     deixaria o Raphael pequeno demais na faixa visível.          */
-  .hero__photo img{ object-position:92% 10%; transform:scale(1.5) translateY(-5%); transform-origin:68% 27%; }
-  /* Grade da foto: glow vermelho e um leve escurecer no topo.
-     A dissolução para o preto NÃO mora aqui.                 */
-  .hero__photo::after{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background:
-      radial-gradient(64vw 22vh at 68% 22%, rgba(227,6,19,.19) 0%, transparent 72%),
-      linear-gradient(180deg, rgba(17,17,17,.36) 0%, rgba(17,17,17,.04) 26%, rgba(17,17,17,.10) 100%);
-  }
-  /* A dissolução é ancorada no TEXTO, não na foto: 140px de rampa
-     terminando exatamente onde o primeiro elemento começa. Assim o
-     ponto de corte é o mesmo em qualquer altura de tela.          */
-  .hero__grid::before{
-    content:""; position:absolute; left:0; right:0; top:-100px; bottom:-60px;
-    z-index:-1; pointer-events:none;
-    background:linear-gradient(180deg,
-      rgba(17,17,17,0) 0px,
-      rgba(17,17,17,.46) 44px,
-      rgba(17,17,17,.88) 76px,
-      rgba(17,17,17,.99) 92px,
-      #111111 100px);
-  }
-  .hero__veil{ display:none; }
-  .hero__grid{ padding-top:0; }
-  .hero__col{ max-width:none; }
 
-  /* Dobra compacta: cada bloco no tamanho mínimo que ainda respira */
-  .hero .kicker{ font-size:10.5px; letter-spacing:.13em; margin-bottom:10px; }
-  .hero .kicker::before{ width:20px }
-  .hero .h-display{ font-size:clamp(1.22rem, 5.3vw, 1.52rem); line-height:1.2; margin-bottom:11px; }
-  #hl-margem{ white-space:nowrap; }
-  .hero__sub{ font-size:.88rem !important; line-height:1.5; margin-bottom:13px; }
-  .hero__date{ display:none; }
-  .form-card--compact{ padding:15px 16px; }
-  /* O botão já diz "live gratuita": o título do card é repetição aqui */
-  .form-card--compact .form-card__title{ display:none; }
-  .form-card--compact .field{ margin-bottom:7px; }
-  .form-card--compact input{ padding:11px 13px; font-size:15px; }
-  .form-card--compact .btn{ padding:14px 16px; font-size:12.5px; letter-spacing:.1em; margin-top:5px; }
-  .form-card--compact .microcopy{ margin-top:9px; font-size:10.5px; line-height:1.45; }
-
-  /* Topbar em uma linha: a data encurta, o contador fica compacto */
-  .topbar__in{ padding-block:8px; gap:8px; flex-wrap:nowrap; }
-  .topbar__date{ font-size:10px; letter-spacing:.08em; gap:7px; }
-  .t-full{ display:none }
-  .t-short{ display:inline }
-  .countdown{ gap:9px; }
-  .cd{ min-width:24px }
-  .cd__num{ font-size:16px }
-  .cd__lab{ font-size:7.5px; letter-spacing:.1em; margin-top:3px }
-  .nav__in{ padding-block:12px }
-  .logo__mark{ width:28px; height:28px }
-  .logo__name{ font-size:17px }
-  .logo__sub{ font-size:7.5px; letter-spacing:.26em; margin-top:4px }
-  .nav__cta{ padding:8px 13px; font-size:11px }
-}
-
-/* Celulares de tela baixa (740, 768, 667): a subhead sai da dobra.
-   Sem esse corte só sobram ~95px de foto e o Raphael vira fantasma
-   atrás da dissolução. O headline já entrega a promessa sozinho.  */
-@media(max-width:979px) and (max-height:800px){
-  .hero__sub{ display:none; }
-  .hero__photo{ height:clamp(240px, 46%, 340px); }
-  .hero .h-display{ font-size:clamp(1.18rem, 5vw, 1.42rem); }
-  .hero__grid::before{
-    top:-84px;
-    background:linear-gradient(180deg,
-      rgba(17,17,17,0) 0px,
-      rgba(17,17,17,.48) 36px,
-      rgba(17,17,17,.9) 64px,
-      rgba(17,17,17,.99) 78px,
-      #111111 84px);
-  }
-}
-
-/* Telas de 667px e menos: sobram ~96px acima do texto. A rampa
-   encurta e a foto sobe, senão o rosto fica dentro da dissolução. */
-@media(max-width:979px) and (max-height:700px){
-  .hero__photo img{ transform:scale(1.5) translateY(-8%); }
-  .hero__grid::before{
-    top:-56px;
-    background:linear-gradient(180deg,
-      rgba(17,17,17,0) 0px,
-      rgba(17,17,17,.52) 24px,
-      rgba(17,17,17,.94) 44px,
-      #111111 56px);
-  }
-}
 
 /* Retrato do apresentador (seção 5.8) */
 .portrait{ position:relative; z-index:2; display:flex; justify-content:center; }
@@ -710,6 +600,118 @@ p:last-child{margin-bottom:0}
   .stickybar .btn{ flex:1 }
 }
 
+/* ============================================================
+   21. RESPONSIVO DA DOBRA
+   Fica no fim da folha de propósito: estas regras precisam
+   vencer as bases das seções 7 e 8 por ordem de cascata.
+   ============================================================ */
+
+/* Vale para notebook 768 e para celular: tira respiro sem tirar conteúdo */
+@media(max-height:880px){
+  .hero{ padding-block:clamp(12px,1.6vh,22px); }
+  .hero .kicker{ margin-bottom:10px }
+  .hero h1{ margin-bottom:10px }
+  .hero__sub{ margin-bottom:10px; font-size:.95rem !important; line-height:1.5 }
+  .hero__date{ margin-bottom:13px; padding-block:3px }
+  .form-card--compact{ padding:17px 20px }
+  .form-card--compact .form-card__title{ margin-bottom:11px }
+  .form-card--compact .field{ margin-bottom:8px }
+  .form-card--compact input{ padding:11px 14px; font-size:15px }
+  .form-card--compact .btn{ padding:13px 20px; margin-top:6px }
+  .form-card--compact .microcopy{ margin-top:9px; font-size:11px; line-height:1.45 }
+}
+
+@media(min-width:980px) and (max-height:800px){
+  .hero .h-display{ font-size:1.68rem; line-height:1.18; }
+}
+
+@media(max-width:979px){
+  .hero{
+    display:flex; flex-direction:column; justify-content:flex-start;
+    /* 6px de folga absorvem o arredondamento sub-pixel dos paddings em vh */
+    min-height:calc(100svh - var(--chrome) - 6px);
+    padding:clamp(14px,2.2vh,22px) 0 clamp(14px,2.4vh,26px);
+  }
+  .hero__head{ order:1; flex:0 0 auto; }
+  .hero__photo{ order:2; position:relative; inset:auto; flex:1 1 0%; min-height:0; }
+  .hero__body{ order:3; flex:0 0 auto; }
+  .hero__veil{ display:none; }
+
+  /* 1. Headline centralizado. O kicker some: o texto novo já carrega
+     "Black Friday 2026" e "e-commerce de moda" dentro dele.        */
+  .hero .kicker{ display:none; }
+  .hl-desk{ display:none; }
+  .hl-mob{ display:inline; }
+  .hero__head .hero__col{ max-width:none; }
+  .hero h1{
+    text-align:center; margin-bottom:clamp(12px,2vh,18px);
+    font-size:clamp(1.18rem, 5.1vw, 1.46rem); line-height:1.24;
+    max-width:520px; margin-inline:auto;
+  }
+
+  /* 2. Foto: enquadramento aproximado no Raphael e dissolução na base */
+  .hero__photo img{
+    object-position:100% center;
+    transform:scale(1.55); transform-origin:100% 24%;
+  }
+  .hero__photo::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(60vw 60% at 62% 34%, rgba(227,6,19,.20) 0%, transparent 72%),
+      linear-gradient(180deg,
+        rgba(17,17,17,.34) 0%,
+        rgba(17,17,17,.04) 22%,
+        rgba(17,17,17,.10) 46%,
+        rgba(17,17,17,.52) 68%,
+        rgba(17,17,17,.88) 86%,
+        #111111 100%);
+  }
+
+  /* 3. Corpo */
+  .hero__body{ padding-top:clamp(12px,2vh,20px); }
+  .hero__col{ max-width:none; }
+  .hero__sub{ font-size:.88rem !important; line-height:1.5; margin-bottom:13px; }
+  .hero__date{ display:none; }
+  .form-card--compact{ padding:15px 16px; }
+  /* O botão já diz "live gratuita": o título do card é repetição aqui */
+  .form-card--compact .form-card__title{ display:none; }
+  .form-card--compact .field{ margin-bottom:7px; }
+  .form-card--compact input{ padding:11px 13px; font-size:15px; }
+  .form-card--compact .btn{ padding:14px 16px; font-size:12.5px; letter-spacing:.1em; margin-top:5px; }
+  .form-card--compact .microcopy{ margin-top:9px; font-size:10.5px; line-height:1.45; }
+
+  /* Topbar em uma linha: a data encurta, o contador fica compacto */
+  .topbar__in{ padding-block:8px; gap:8px; flex-wrap:nowrap; }
+  .topbar__date{ font-size:10px; letter-spacing:.08em; gap:7px; }
+  .t-full{ display:none }
+  .t-short{ display:inline }
+  .countdown{ gap:9px; }
+  .cd{ min-width:24px }
+  .cd__num{ font-size:16px }
+  .cd__lab{ font-size:7.5px; letter-spacing:.1em; margin-top:3px }
+  .nav__in{ padding-block:12px }
+  .logo__mark{ width:28px; height:28px }
+  .logo__name{ font-size:17px }
+  .logo__sub{ font-size:7.5px; letter-spacing:.26em; margin-top:4px }
+  .nav__cta{ padding:8px 13px; font-size:11px }
+}
+
+/* Celulares de tela baixa: a subhead sai da dobra e tudo aperta um grau,
+   senão não sobra altura nenhuma para a foto entre o headline e o form. */
+@media(max-width:979px) and (max-height:780px){
+  .hero{ padding-bottom:10px; }
+  .hero__sub{ display:none; }
+  .hero h1{ font-size:clamp(1.08rem, 4.6vw, 1.28rem); line-height:1.26; margin-bottom:12px; }
+  .hero__body{ padding-top:8px; }
+  .form-card--compact{ padding:13px 15px; }
+  .form-card--compact .field{ margin-bottom:5px; }
+  .form-card--compact input{ padding:10px 12px; }
+  .form-card--compact .btn{ padding:13px 14px; margin-top:4px; }
+  .form-card--compact .microcopy{ margin-top:7px; font-size:9.8px; line-height:1.4; }
+}
+
+
+
 /* ---------- 20. ANIMAÇÃO (só quando o JS assume) ---------- */
 html.js-anim .anim{ visibility:hidden; }
 @media (prefers-reduced-motion: reduce){
@@ -775,10 +777,20 @@ html.js-anim .anim{ visibility:hidden; }
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
 
-  <div class="wrap hero__grid">
-    <div class="hero__col">
+  <!-- Bloco de topo: no mobile ele sobe para cima da foto -->
+  <div class="hero__head">
+    <div class="wrap"><div class="hero__col">
       <p class="kicker anim" data-anim="up">Black Friday 2026 para e-commerces de moda</p>
-      <h1 class="h-display anim" data-anim="up">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</h1>
+      <h1 class="h-display anim" data-anim="up">
+        <span class="hl-desk">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</span>
+        <span class="hl-mob">Você vai aprender com Raphael Araújo a como preparar o seu e-commerce de moda para a <span class="red">Black Friday 2026</span></span>
+      </h1>
+    </div></div>
+  </div>
+
+  <!-- Corpo: subheadline, data e formulário -->
+  <div class="hero__body">
+    <div class="wrap"><div class="hero__col">
       <p class="hero__sub lead anim" data-anim="up">Participe desta live gratuita e descubra como transformar metas de vendas em um planejamento completo de estoque, ofertas, marketing e operação.</p>
       <p class="hero__date anim" data-anim="up">Quarta-feira, 07 de outubro, às 19h</p>
       <!-- No mobile esta linha é ocultada: a data já aparece na topbar e na barra fixa -->
@@ -819,6 +831,7 @@ html.js-anim .anim{ visibility:hidden; }
         </div>
       </div>
     </div>
+    </div></div>
   </div>
 </section>
 

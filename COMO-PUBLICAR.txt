@@ -18,6 +18,10 @@ A DOBRA TEM DUAS MONTAGENS
   o do desktop é .hl-desk. Para mudar um dos dois, edite só o span
   correspondente dentro do <h1>.
 
+  No mobile os títulos de cada seção ficam centralizados, com o kicker
+  e o fio vermelho dos dois lados. O corpo de texto segue alinhado à
+  esquerda: parágrafo longo centralizado prejudica a leitura.
+
   Na montagem mobile a foto é um item flex de base zero: ela recebe
   exatamente a altura que sobra entre o headline e o formulário. Em
   telas maiores aparece mais foto, sem nunca empurrar o formulário
@@ -66,11 +70,18 @@ O QUE FALTA VOCÊ CONECTAR ANTES DE RODAR TRÁFEGO
 
 FOTOS
 
-São duas fotos:
+São três imagens:
 
   assets/raphael-hero.webp  (1672 x 941, 146 KB)
-  usada na dobra, como imagem de fundo inteira, com véu preto à
-  esquerda no desktop e dissolução para o preto no mobile.
+  usada na dobra do DESKTOP, como imagem de fundo inteira, com véu
+  preto da esquerda até o meio.
+
+  assets/hero-mobile.webp  (1100 x 619, 62 KB)
+  usada na dobra do MOBILE. É a arte já composta, com a tipografia
+  BLACK FRIDAY dentro dela, então não recebe zoom nem gradação em
+  CSS: só um degradê na base para costurar com o fundo preto.
+  A troca entre as duas é feita por <picture> com media query, então
+  cada aparelho baixa só a imagem que vai usar.
 
   assets/raphael-mesa.webp  (1200 x 800, 60 KB)
   usada na seção "Com quem você vai aprender", recortada em 4:5.
@@ -82,9 +93,10 @@ São duas fotos:
 
 Para trocar uma foto, substitua o arquivo mantendo o mesmo nome.
 Se quiser ajustar o enquadramento, procure no index.html:
-  .hero__photo img  -> object-position:74% center            (dobra, desktop)
-  .hero__photo img  -> transform:scale(1.5) translateY(-5%)  (dobra, mobile)
-  .speaker__img     -> object-position:53% center             (retrato)
+  .hero__photo img  -> object-position:74% center   (dobra, desktop)
+  .speaker__img     -> object-position:53% center   (retrato)
+No mobile a arte da dobra não tem ajuste de enquadramento: ela já vem
+composta. Se trocar por outra imagem, use 16:9 com o assunto no centro.
 No object-position o primeiro número move na horizontal e o segundo na
 vertical. No mobile, scale aproxima e translateY sobe ou desce o Raphael.
 

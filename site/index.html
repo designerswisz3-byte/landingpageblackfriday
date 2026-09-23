@@ -649,21 +649,18 @@ p:last-child{margin-bottom:0}
     max-width:520px; margin-inline:auto;
   }
 
-  /* 2. Foto: enquadramento aproximado no Raphael e dissolução na base */
-  .hero__photo img{
-    object-position:100% center;
-    transform:scale(1.55); transform-origin:100% 24%;
-  }
+  /* 2. A arte já vem composta e enquadrada: nada de zoom aqui.
+     O degradê da base só costura a imagem com o preto do fundo. */
+  .hero__photo img{ object-position:center; transform:none; filter:none; }
   .hero__photo::after{
     content:""; position:absolute; inset:0; pointer-events:none;
     background:
-      radial-gradient(60vw 60% at 62% 34%, rgba(227,6,19,.20) 0%, transparent 72%),
       linear-gradient(180deg,
-        rgba(17,17,17,.34) 0%,
-        rgba(17,17,17,.04) 22%,
-        rgba(17,17,17,.10) 46%,
-        rgba(17,17,17,.52) 68%,
-        rgba(17,17,17,.88) 86%,
+        rgba(17,17,17,.10) 0%,
+        rgba(17,17,17,0) 18%,
+        rgba(17,17,17,0) 58%,
+        rgba(17,17,17,.34) 74%,
+        rgba(17,17,17,.80) 90%,
         #111111 100%);
   }
 
@@ -694,6 +691,20 @@ p:last-child{margin-bottom:0}
   .logo__name{ font-size:17px }
   .logo__sub{ font-size:7.5px; letter-spacing:.26em; margin-top:4px }
   .nav__cta{ padding:8px 13px; font-size:11px }
+
+  /* Títulos de seção centralizados. O kicker acompanha, com fio dos
+     dois lados, senão a marcação de uma perna só fica torta.      */
+  .h-section{ text-align:center; max-width:24ch; margin-inline:auto; }
+  .speaker__name{ text-align:center; }
+  .speaker__role{ text-align:center; margin-inline:auto; }
+  .kicker{ justify-content:center; }
+  .kicker::after{ content:""; width:28px; height:1px; background:var(--red); flex:none; }
+
+  /* Barra fixa: o botão estava quebrando em duas linhas em 390px */
+  .stickybar__in{ padding-block:10px; gap:12px; flex-wrap:nowrap; }
+  .stickybar__txt{ font-size:10.5px; letter-spacing:.09em; gap:8px; }
+  .stickybar .btn{ flex:none; white-space:nowrap; padding:11px 15px; font-size:11px; letter-spacing:.09em; }
+  .stickybar .btn svg{ width:12px; height:12px }
 }
 
 /* Celulares de tela baixa: a subhead sai da dobra e tudo aperta um grau,
@@ -773,7 +784,11 @@ html.js-anim .anim{ visibility:hidden; }
 <section class="hero">
   <!-- Foto full-bleed: o lado esquerdo da imagem já é escuro, o véu reforça -->
   <div class="hero__photo" aria-hidden="true">
-    <img src="assets/raphael-hero.webp" alt="" class="js-photo" width="1672" height="941" fetchpriority="high">
+    <picture>
+      <!-- No mobile entra a arte com a tipografia; no desktop, a foto limpa -->
+      <source media="(max-width:979px)" srcset="assets/hero-mobile.webp" width="1100" height="619">
+      <img src="assets/raphael-hero.webp" alt="" class="js-photo" width="1672" height="941" fetchpriority="high">
+    </picture>
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
 

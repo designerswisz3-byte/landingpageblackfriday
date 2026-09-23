@@ -4,7 +4,7 @@ Cada build carrega um carimbo. Para checar:
   1. Abra a pagina publicada
   2. Ctrl+U (ou Cmd+Option+U no Mac) para ver o codigo fonte
   3. A segunda linha mostra, por exemplo:
-     <!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v7 -->
+     <!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v8 -->
 
 Se o numero do build nao for o do arquivo que voce acabou de subir,
 o navegador esta servindo cache: recarregue com Ctrl+Shift+R.
@@ -31,9 +31,8 @@ A DOBRA TEM DUAS MONTAGENS
 
   Mobile e tablet (até 979px): três blocos empilhados, na ordem
   headline centralizado, foto e depois subheadline com formulário.
-  O headline do mobile é outro texto, marcado no HTML como .hl-mob;
-  o do desktop é .hl-desk. Para mudar um dos dois, edite só o span
-  correspondente dentro do <h1>.
+  O headline é o mesmo nas duas montagens; muda só o alinhamento
+  (à esquerda no desktop, centralizado no mobile).
 
   No mobile os títulos de cada seção ficam centralizados, com o kicker
   e o fio vermelho dos dois lados. O corpo de texto segue alinhado à

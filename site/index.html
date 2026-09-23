@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v7 -->
-<html lang="pt-BR" data-build="2026-09-23-v7">
+<!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v8 -->
+<html lang="pt-BR" data-build="2026-09-23-v8">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -84,7 +84,7 @@ p:last-child{margin-bottom:0}
 
 .h-display{
   font-family:var(--serif); font-weight:400; color:var(--white);
-  font-size:clamp(1.7rem, 2.45vw, 2.25rem); line-height:1.16; letter-spacing:-.015em;
+  font-size:clamp(1.7rem, 2.3vw, 2.12rem); line-height:1.16; letter-spacing:-.015em;
 }
 .h-section{
   font-family:var(--serif); font-weight:400; color:var(--white);
@@ -202,7 +202,6 @@ p:last-child{margin-bottom:0}
 @media(min-width:1100px){ .hero__col{ max-width:min(560px, 52%); } }
 
 /* Duas versões do headline: a do desktop e a do mobile */
-.hl-mob{ display:none; }
 
 /* Foto full-bleed */
 .hero__photo{ position:absolute; inset:0; z-index:0; overflow:hidden; }
@@ -650,8 +649,6 @@ p:last-child{margin-bottom:0}
   /* 1. Headline centralizado. O kicker some: o texto novo já carrega
      "Black Friday 2026" e "e-commerce de moda" dentro dele.        */
   .hero .kicker{ display:none; }
-  .hl-desk{ display:none; }
-  .hl-mob{ display:inline; }
   .hero__head .hero__col{ max-width:none; }
   .hero h1{
     text-align:center; margin-bottom:clamp(12px,2vh,18px);
@@ -807,8 +804,7 @@ html.js-anim .anim{ visibility:hidden; }
     <div class="wrap"><div class="hero__col">
       <p class="kicker anim" data-anim="up">Black Friday 2026 para e-commerces de moda</p>
       <h1 class="h-display anim" data-anim="up">
-        <span class="hl-desk">Como vender mais na Black Friday <span class="red" id="hl-margem">sem perder margem</span>, romper o estoque ou travar sua operação</span>
-        <span class="hl-mob">Você vai aprender com Raphael Araújo a como preparar o seu e-commerce de moda para a <span class="red">Black Friday 2026</span></span>
+        Você vai aprender com Raphael Araújo a como preparar o seu e-commerce de moda para a <span class="red" id="hl-destaque">Black Friday 2026 nos marketplaces</span>
       </h1>
     </div></div>
   </div>
@@ -943,14 +939,10 @@ html.js-anim .anim{ visibility:hidden; }
       </article>
       <article class="module anim" data-anim="up">
         <span class="module__n" aria-hidden="true">05</span>
-        <div><h3 class="module__t">Marketing e antecipação</h3><p class="module__d">Quando começar a comunicação, como aquecer o público, captar clientes para grupos e listas, preparar criativos e organizar o investimento em mídia.</p></div>
-      </article>
-      <article class="module anim" data-anim="up">
-        <span class="module__n" aria-hidden="true">06</span>
         <div><h3 class="module__t">Preparação da operação</h3><p class="module__d">Como calcular a capacidade de separação, faturamento, embalagem, expedição e atendimento para não vender acima do que a empresa consegue entregar.</p></div>
       </article>
       <article class="module anim" data-anim="up">
-        <span class="module__n" aria-hidden="true">07</span>
+        <span class="module__n" aria-hidden="true">06</span>
         <div><h3 class="module__t">Indicadores e decisões</h3><p class="module__d">Quais números acompanhar diariamente para aumentar mídia, interromper ofertas, movimentar estoque e corrigir problemas durante a campanha.</p></div>
       </article>
     </div>
@@ -1023,10 +1015,10 @@ html.js-anim .anim{ visibility:hidden; }
     <div>
       <p class="kicker anim" data-anim="up">Com quem você vai aprender</p>
       <h2 class="speaker__name anim" data-anim="up">Raphael Araújo</h2>
-      <p class="speaker__role anim" data-anim="up">CEO da Swisz e especialista em gestão de e-commerce de moda</p>
+      <p class="speaker__role anim" data-anim="up">CEO da Swisz e especialista em moda e marketplaces</p>
       <div class="anim" data-anim="up">
         <p class="lead">Raphael atua diretamente na gestão e no crescimento da Swisz, uma operação de moda feminina com produção própria e presença em diferentes canais de venda.</p>
-        <p class="lead">Sua experiência envolve planejamento comercial, gestão de estoque, produção, marketplaces, marketing, operação e construção de processos para o crescimento sustentável de um e-commerce de moda.</p>
+        <p class="lead">Sua experiência envolve planejamento comercial, gestão de estoque, produção, marketplaces, marketing, operação e construção de processos para o crescimento sustentável de um e-commerce de moda que vai faturar R$ 50 milhões em 2026.</p>
         <p class="lead">Nesta live, Raphael compartilhará os principais critérios utilizados para transformar dados em decisões e preparar uma operação para períodos de alta demanda.</p>
       </div>
     </div>
@@ -1291,7 +1283,7 @@ html.js-anim .anim{ visibility:hidden; }
     gsap.set(heroItems, { autoAlpha:0, y:22 });
     gsap.timeline({ delay:.15 })
       .to(heroItems, { autoAlpha:1, y:0, duration:1, ease:"power3.out", stagger:.09 })
-      .fromTo("#hl-margem",
+      .fromTo("#hl-destaque",
         { color:"#FFFFFF" },
         { color:"#E30613", duration:1.1, ease:"power2.inOut" }, "-=.65");
 

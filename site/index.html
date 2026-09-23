@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<!-- aSSELLERa | Black Friday 2026 | build 2026-09-23-v6 -->
+<html lang="pt-BR" data-build="2026-09-23-v6">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -414,6 +415,27 @@ p:last-child{margin-bottom:0}
   border-left:2px solid var(--red); padding:6px 0 6px clamp(20px,3vw,34px);
   font-family:var(--serif); color:var(--off);
   font-size:clamp(1.25rem,2.5vw,1.85rem); line-height:1.4; max-width:44ch;
+}
+
+/* ---------- 10b. FAIXA DE IMAGEM (largura total) ---------- */
+.band{
+  position:relative; width:100%; overflow:hidden; margin:clamp(44px,6vw,84px) 0 0;
+}
+.band img{
+  display:block; width:100%; height:auto;
+  filter:saturate(.7) contrast(1.09) brightness(.92);
+}
+/* Dissolve nas bordas para a faixa entrar no preto da seção
+   em vez de ficar um retângulo colado no meio da página. */
+.band::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg,
+      #111111 0%, rgba(17,17,17,.62) 7%, rgba(17,17,17,0) 20%,
+      rgba(17,17,17,0) 80%, rgba(17,17,17,.62) 93%, #111111 100%),
+    linear-gradient(90deg,
+      rgba(17,17,17,.55) 0%, rgba(17,17,17,0) 12%,
+      rgba(17,17,17,0) 88%, rgba(17,17,17,.55) 100%);
 }
 
 /* ---------- 11. BLOCOS NUMERADOS ---------- */
@@ -896,6 +918,14 @@ html.js-anim .anim{ visibility:hidden; }
 
     <blockquote class="pullquote anim" data-anim="up">A Black Friday não deve começar na escolha do desconto. Ela deve começar na <span class="red">análise dos números, do estoque, da margem e da capacidade de entrega</span> da empresa.</blockquote>
   </div>
+
+  <!-- Faixa de largura total: a pergunta fecha a seção de identificação -->
+  <figure class="band anim" data-anim="fade">
+    <picture>
+      <source media="(max-width:700px)" srcset="assets/estoque-800.webp" width="800" height="450">
+      <img src="assets/estoque-1500.webp" alt="Galpão da operação com sacos e gaveteiros cheios de peças: seu estoque hoje consegue suprir a demanda da Black Friday?" width="1500" height="844" loading="lazy" decoding="async">
+    </picture>
+  </figure>
 </section>
 
 <!-- ========== 5.5 CONTEÚDO DA LIVE ========== -->
